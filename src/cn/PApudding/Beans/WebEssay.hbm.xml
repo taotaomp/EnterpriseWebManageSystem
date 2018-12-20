@@ -14,7 +14,7 @@
 		
 		<!-- 其他字段映射 -->
 		<property name="essayTitle" column="essayTitle"/>
-		<property name="essayContent" column="essayContent"/>
+		<property name="essayContent" column="essayContent" type="text"/>
 		<property name="essayField" column="essayField"/>
 	</class>
 </hibernate-mapping>

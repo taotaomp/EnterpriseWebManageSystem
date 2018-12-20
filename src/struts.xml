@@ -5,7 +5,11 @@
 <struts>
 	<package name="EnterpriseManageSystem" namespace="/" extends="struts-default">
 		<action name="test" class="cn.PApudding.Actions.TestAction">
-			<result name="SUCCESS">jsps/createDataSpurce.jsp</result>
+			<result name="success">/jsps/createDataSpurce.jsp</result>
+		</action>
+		
+		<action name="test1" class="cn.PApudding.Actions.TestAction" method="test1">
+			<result name="success">/jsps/createDataSpurce.jsp</result>
 		</action>
 	</package>
 </struts>
