@@ -4,8 +4,8 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<package name="EnterpriseManageSystem" namespace="/" extends="struts-default">
-		<action name="" class="">
-			<result></result>
+		<action name="test" class="cn.PApudding.Actions.TestAction">
+			<result name="SUCCESS">jsps/createDataSpurce.jsp</result>
 		</action>
 	</package>
 </struts>

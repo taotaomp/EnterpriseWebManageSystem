@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<!-- 建立WebEssay类与WebEssay表关系映射 -->
+	<class name="cn.PApudding.Beans.WebEssay" table="WebEssay">
+		<!-- 主键映射 -->
+		<id name="id" column="id">
+			<!-- native生成策略 -->
+			<generator class="native"/>
+		</id>
+		
+		<!-- 其他字段映射 -->
+		<property name="essayTitle" column="essayTitle"/>
+		<property name="essayContent" column="essayContent"/>
+		<property name="essayField" column="essayField"/>
+	</class>
+</hibernate-mapping>
