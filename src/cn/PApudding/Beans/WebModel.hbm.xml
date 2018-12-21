@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<!-- 建立WebModel类与WebModel表关系映射  -->
+	<class name="cn.PApudding.Beans.WebModel" table="WebModel">
+		<!-- 主键映射 -->
+		<id name="id" column="id">
+			<!-- native生成策略 -->
+			<generator class="native"/>
+		</id>
+		
+		<!-- 其他字段映射 -->
+		<property name="modelName" column="modelName" unique="true"/>
+		<property name="modelType" column="modelType"/>
+		<property name="modelHtmlCode" column="modelHtmlCode" type="text"/>
+		<property name="modeCssCode" column="modeCssCode" type="text"/>
+		<property name="modelJs" column="modelJs" type="text"/>
+	</class>
+</hibernate-mapping>

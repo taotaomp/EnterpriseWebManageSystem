@@ -23,5 +23,6 @@
 		<mapping resource="cn/PApudding/Beans/WebEssay.hbm.xml"/>
 		<mapping resource="cn/PApudding/Beans/WebLink.hbm.xml"/>
 		<mapping resource="cn/PApudding/Beans/WebMediaSource.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/WebModel.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
