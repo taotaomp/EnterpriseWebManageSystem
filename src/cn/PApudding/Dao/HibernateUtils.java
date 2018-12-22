@@ -93,13 +93,30 @@ public class HibernateUtils {
 		}
 		}
 		// 开始查询
-		Query query = session.createQuery("from " + databaseName +" where "+fieldColumnName+" = "+field);
+		Query query = session.createQuery("from " + databaseName + " where " + fieldColumnName + " = " + field);
 		List<Object> list = query.list();
 		// 提交事务
 		tx.commit();
 		// 关闭Session对象
 		session.close();
 		return list;
+	}
+
+	/**
+	 * 从数据库中删除对象（对象和表的映射由Hibernate负责维护）
+	 * @param object
+	 */
+	public static void removeObject(Object object) {
+		// 获取Session对象
+		Session session = HibernateGenerater.SessionGenerate();
+		// 开始事务
+		Transaction tx = session.beginTransaction();
+		//删除对象
+		session.delete(object);
+		// 提交事务
+		tx.commit();
+		// 关闭Session对象
+		session.close();
 	}
 
 }

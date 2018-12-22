@@ -7,10 +7,10 @@ package cn.PApudding.Beans;
  *
  */
 public class WebEssay {
-	private int id;// id
+	private int id; // id
 	private String essayTitle; // 文章标题
-	private String essayContent;// 文章内容
-	private String essayField;// 文章作用域
+	private String essayContent; // 文章内容
+	private String essayField; // 文章作用域
 
 	public int getId() {
 		return id;
