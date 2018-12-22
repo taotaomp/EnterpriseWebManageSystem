@@ -12,4 +12,5 @@
 			<result name="success">/jsps/createDataSpurce.jsp</result>
 		</action>
 	</package>
+	<include file="cn/PApudding/Actions/struts-EnterCreateTemplateAction.xml"></include>
 </struts>
