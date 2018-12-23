@@ -13,7 +13,7 @@
 		</id>
 		
 		<!-- 其他字段映射 -->
-		<property name="templateName" column="templateName"/>
+		<property name="templateName" column="templateName" unique="true"/>
 		<property name="templateType" column="templateType"/>
 		<property name="templateFileCode" column="templateFileCode" type="text"/>
 	</class>

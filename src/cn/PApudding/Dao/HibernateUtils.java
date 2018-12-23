@@ -104,6 +104,7 @@ public class HibernateUtils {
 
 	/**
 	 * 从数据库中删除对象（对象和表的映射由Hibernate负责维护）
+	 * 
 	 * @param object
 	 */
 	public static void removeObject(Object object) {
@@ -111,7 +112,7 @@ public class HibernateUtils {
 		Session session = HibernateGenerater.SessionGenerate();
 		// 开始事务
 		Transaction tx = session.beginTransaction();
-		//删除对象
+		// 删除对象
 		session.delete(object);
 		// 提交事务
 		tx.commit();
@@ -119,4 +120,28 @@ public class HibernateUtils {
 		session.close();
 	}
 
+	/**
+	 * 从数据库中获得单个对象
+	 * 
+	 * @param sql
+	 * @return Object 单个满足查询语句的对象，若有多个对象则返回第一个
+	 */
+	public static Object getSingleObjectBySql(String sql) {
+		// 获取Session对象
+		Session session = HibernateGenerater.SessionGenerate();
+		// 开始事务
+		Transaction tx = session.beginTransaction();
+		// 开始查询
+		Query query = session.createQuery(sql);
+		List<Object> list = query.list();
+		Object object = null;
+		if(list!=null) {
+			object = list.get(0);
+		}
+		// 提交事务
+		tx.commit();
+		// 关闭Session对象
+		session.close();
+		return object;
+	}
 }

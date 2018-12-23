@@ -13,7 +13,7 @@
 		</id>
 		
 		<!-- 其他字段映射 -->
-		<property name="pageName" column="pageName"/>
+		<property name="pageName" column="pageName" unique="true"/>
 		<property name="pageFileCode" column="pageFileCode" type="text"/>
 		<!-- 集合的映射 -->
 		<set name="pageModelNames" table="WebPage_pageModelNames">
