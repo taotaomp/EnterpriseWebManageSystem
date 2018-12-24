@@ -5,6 +5,8 @@
 <!-- 此文件创建以下Action子类的映射
 	EnterCreatePageAction
 	EnterModifyPageAction
+	SavePageAction
+	EnterSiteManagePageAction
  -->
 <struts>
     <package name="PageActions" namespace="/" extends="struts-default">
@@ -12,8 +14,19 @@
         <action name="enterCreatePage" class="cn.PApudding.Actions.EnterCreatePageAction">
             <result name="success"></result>
         </action>
+        
         <!-- 修改页面请求的action映射 -->
         <action name="enterModifyPage" class="cn.PApudding.Actions.EnterModifyPageAction">
+        	<result name="success"></result>
+        </action>
+        
+        <!-- 页面保存请求的action映射 -->
+        <action name="savePage" class="cn.PApudding.Actions.SavePageAction">
+        	<result name="success"></result>
+        </action>
+        
+        <!-- 站点管理请求的action映射 -->
+        <action name="siteManagePage" class="cn.PApudding.Actions.EnterSiteManagePageAction">
         	<result name="success"></result>
         </action>
     </package>

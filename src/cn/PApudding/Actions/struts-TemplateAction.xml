@@ -17,5 +17,9 @@
         <action name="saveTemplate" class="cn.PApudding.Actions.SaveTemplateAction">
         	<result name="success"></result>
         </action>
+        <!-- 修改模板请求的action映射 -->
+        <action name="enterModifyTemplate" class="cn.PApudding.Actions.EnterModifyTemplateAcrion">
+        	<result name="success"></result>
+        </action>
     </package>
 </struts>

@@ -14,4 +14,5 @@
 	</package>
 	<include file="cn/PApudding/Actions/struts-TemplateAction.xml"></include>
 	<include file="cn/PApudding/Actions/struts-PageAction.xml"></include>
+	<include file="cn/PApudding/Actions/struts-MainSiteAction.xml"></include>
 </struts>
