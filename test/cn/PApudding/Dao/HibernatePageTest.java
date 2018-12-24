@@ -1,24 +1,16 @@
-package cn.PApudding.Actions;
+package cn.PApudding.Dao;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.struts2.ServletActionContext;
-
-import com.opensymphony.xwork2.ActionSupport;
+import org.junit.Test;
 
 import cn.PApudding.Beans.WebPage;
 import cn.PApudding.Beans.WebPageToModelBindEntity;
-import cn.PApudding.Dao.HibernateUtils;
-import cn.PApudding.SiteGenerator.SiteJspGenerator;
 
-
-public class TestAction extends ActionSupport{
-	@Override
-	public String execute() throws Exception {
-		String ServletRealPath = ServletActionContext.getServletContext().getRealPath(".");
-		SiteJspGenerator.generateJSP(ServletRealPath, "test.jsp", "<html><p>fuck</p></html>");
-		
+public class HibernatePageTest {
+	@Test
+	public void pageTest() {
 		WebPage page = new WebPage();
 		WebPageToModelBindEntity webPageToModelBindEntity1 = new WebPageToModelBindEntity();
 		webPageToModelBindEntity1.setModelRandomNumber(156);
@@ -44,6 +36,5 @@ public class TestAction extends ActionSupport{
 		objects.add(page);
 		
 		HibernateUtils.saveObjects(objects);
-		return SUCCESS;
 	}
 }

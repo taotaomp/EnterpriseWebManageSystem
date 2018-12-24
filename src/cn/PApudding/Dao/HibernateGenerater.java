@@ -22,7 +22,7 @@ public class HibernateGenerater {
 	 * 创建一个Hibernate的Session对象
 	 * @return Session对象
 	 */
-	public static Session SessionGenerate() {
+	public static Session sessionGenerate() {
 		return sessionFactory.openSession();
 	}
 }

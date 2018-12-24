@@ -24,5 +24,7 @@
 		<mapping resource="cn/PApudding/Beans/WebLink.hbm.xml"/>
 		<mapping resource="cn/PApudding/Beans/WebMediaSource.hbm.xml"/>
 		<mapping resource="cn/PApudding/Beans/WebModel.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/WebPage.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/WebPageToModelBindEntity.xml"/>
 	</session-factory>
 </hibernate-configuration>

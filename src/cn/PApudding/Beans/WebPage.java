@@ -1,5 +1,6 @@
 package cn.PApudding.Beans;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -12,7 +13,7 @@ public class WebPage {
 	private int id; // id
 	private String pageName; // 页面的名字
 	private String pageFileCode; // 页面的整体代码
-	private Set<String> pageModelNames; // 页面中含有的绑定了数据源的模块名字
+	private Set<WebPageToModelBindEntity> webPageToModelBindEntities = new HashSet<WebPageToModelBindEntity>(); // 页面和模块的数据库映射实体
 
 	public int getId() {
 		return id;
@@ -38,13 +39,15 @@ public class WebPage {
 		this.pageFileCode = pageFileCode;
 	}
 
-	public Set<String> getPageModelNames() {
-		return pageModelNames;
+	public Set<WebPageToModelBindEntity> getWebPageToModelBindEntities() {
+		return webPageToModelBindEntities;
 	}
 
-	public void setPageModelNames(Set<String> pageModelNames) {
-		this.pageModelNames = pageModelNames;
+	public void setWebPageToModelBindEntities(Set<WebPageToModelBindEntity> webPageToModelBindEntities) {
+		this.webPageToModelBindEntities = webPageToModelBindEntities;
 	}
+
+	
 
 	
 

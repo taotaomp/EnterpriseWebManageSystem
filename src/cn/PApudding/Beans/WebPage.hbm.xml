@@ -15,10 +15,12 @@
 		<!-- 其他字段映射 -->
 		<property name="pageName" column="pageName" unique="true"/>
 		<property name="pageFileCode" column="pageFileCode" type="text"/>
-		<!-- 集合的映射 -->
-		<set name="pageModelNames" table="WebPage_pageModelNames">
-			<key column="id"></key>
-			<element type="string" column="ModelNames"></element>
+		<!-- 一对多的映射 -->
+		<set name="webPageToModelBindEntities">
+			<!-- 多的一方的外键名 -->
+			<key column="fk_webPageToModelBindEntitiy"></key>
+			<!-- 多的一方的类 -->
+			<one-to-many class="cn.PApudding.Beans.WebPageToModelBindEntity"/>
 		</set>
 	</class>
 </hibernate-mapping>
