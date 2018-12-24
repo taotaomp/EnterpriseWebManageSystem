@@ -10,9 +10,6 @@
 			<result name="success">/jsps/createDataSpurce.jsp</result>
 		</action>
 		
-		<action name="test1" class="cn.PApudding.Actions.TestAction" method="test1">
-			<result name="success">/jsps/createDataSpurce.jsp</result>
-		</action>
 	</package>
 	<include file="cn/PApudding/Actions/struts-TemplateAction.xml"></include>
 	<include file="cn/PApudding/Actions/struts-PageAction.xml"></include>
