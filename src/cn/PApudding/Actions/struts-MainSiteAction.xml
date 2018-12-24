@@ -7,8 +7,9 @@
  -->
 <struts>
     <package name="MainSite" namespace="/" extends="struts-default">
+        <!-- 访问主页请求的Action映射 -->
         <action name="enterMainSite" class="cn.PApudding.Actions.EnterMainSiteAction">
-            <result name="success">/index.jsp</result>
+            <result name="success">/jsps/contentPage.jsp</result>
         </action>
     </package>
 </struts>
