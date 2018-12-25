@@ -7,6 +7,7 @@
 	EnterModifyPageAction
 	SavePageAction
 	EnterSiteManagePageAction
+	SaveSiteAction
  -->
 <struts>
     <package name="PageActions" namespace="/" extends="struts-default">
@@ -26,8 +27,13 @@
         </action>
         
         <!-- 站点管理请求的action映射 -->
-        <action name="siteManagePage" class="cn.PApudding.Actions.EnterSiteManagePageAction">
+        <action name="enterSiteManagePage" class="cn.PApudding.Actions.EnterSiteManagePageAction">
         	<result name="success"></result>
+        </action>
+        
+        <!-- 保存站点请求的action映射 -->
+        <action name="saveSite" class="cn.PApudding.Actions.SaveSiteAction">
+        	<result name="success">/jsps/saveSiteTest/saveSite.jsp</result>
         </action>
     </package>
 </struts>
