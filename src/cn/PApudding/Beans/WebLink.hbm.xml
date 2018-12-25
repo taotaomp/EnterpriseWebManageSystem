@@ -15,6 +15,6 @@
 		<!-- 其他字段映射 -->
 		<property name="linkName" column="linkName"/>
 		<property name="linkUrl" column="linkUrl"/>
-		<property name="linkField" column="linkField"/>
+		<property name="linkField" column="linkField" not-null="true"/>
 	</class>
 </hibernate-mapping>

@@ -16,6 +16,6 @@
 		<property name="mediaType" column="mediaType"/>
 		<property name="mediaName" column="mediaName"/>
 		<property name="mediaUrl" column="mediaUrl"/>
-		<property name="mediaField" column="mediaField"/>
+		<property name="mediaField" column="mediaField" not-null="true"/>
 	</class>
 </hibernate-mapping>

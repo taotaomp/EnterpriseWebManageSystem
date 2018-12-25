@@ -1,6 +1,10 @@
 package cn.PApudding.Dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.hibernate.Query;
@@ -155,5 +159,45 @@ public class HibernateUtils {
 		// 关闭Session对象
 		session.close();
 		return object;
+	}
+
+	/**
+	 * 查询数据库中现有的所有内容源
+	 * 
+	 * @return Map<String, List<String>>
+	 * 		keys:	webEssayFields
+	 *				webLinkFields
+	 *				webMediaSourceFields
+	 */
+	public static Map<String, List<String>> getAllFields() {
+		// 获取Session对象
+		Session session = HibernateGenerater.sessionGenerate();
+		// 开始事务
+		Transaction tx = session.beginTransaction();
+		// 开始查询
+		// 定义查询语句
+		String webEssaySQL = "SELECT DISTINCT essayField FROM WebEssay";
+		String webLinkSQL = "SELECT DISTINCT linkField FROM WebLink";
+		String webMediaSourceSQL = "SELECT DISTINCT mediaField FROM WebMediaSource";
+		// 查询操作
+		List<String> webEssayFields = session.createSQLQuery(webEssaySQL).list();
+		List<String> webLinkFields = session.createSQLQuery(webLinkSQL).list();
+		List<String> webMediaSourceFields = session.createSQLQuery(webMediaSourceSQL).list();
+
+//		List<List<String>> allFields = new ArrayList<List<String>>();
+//		allFields.add(webEssayFields);
+//		allFields.add(webLinkFields);
+//		allFields.add(webMediaSourceFields);
+		// 将查询到的数据放入容器
+		Map<String, List<String>> allFields = new HashMap<String, List<String>>();
+		allFields.put("webEssayFields", webEssayFields);
+		allFields.put("webLinkFields", webLinkFields);
+		allFields.put("webMediaSourceFields", webMediaSourceFields);
+
+		// 提交事务
+		tx.commit();
+		// 关闭Session对象
+		session.close();
+		return allFields;
 	}
 }
