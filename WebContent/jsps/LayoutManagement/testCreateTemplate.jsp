@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="${pageContext.request.contextPath }/enterCreateTemplate">获得测试值 </a>
+	<a href="${pageContext.request.contextPath }/enterCreateTemplate.action">获得测试值 </a>
 </body>
 </html>

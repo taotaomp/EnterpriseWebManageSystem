@@ -16,7 +16,7 @@
 		<property name="pageName" column="pageName" unique="true"/>
 		<property name="pageFileCode" column="pageFileCode" type="text"/>
 		<!-- 一对多的映射 -->
-		<set name="webPageToModelBindEntities">
+		<set name="webPageToModelBindEntities" lazy="false">
 			<!-- 多的一方的外键名 -->
 			<key column="fk_webPageToModelBindEntitiy"></key>
 			<!-- 多的一方的类 -->

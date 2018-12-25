@@ -13,7 +13,8 @@
 		List<WebModel> list = (List<WebModel>) request.getAttribute("listAllModelContainer");
 		for (WebModel model : list) {
 	%>
-	<%=model.getModeCssCode()%>
+	<% %>
+	<a href="<%=model.getModeCssCode()%>"></a>
 	<%
 		}
 	%>
