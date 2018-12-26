@@ -109,7 +109,7 @@ public class HibernateUtils {
 		}
 		}
 		// 开始查询
-		Query query = session.createQuery("from " + databaseName + " where " + fieldColumnName + " = " + field);
+		Query query = session.createQuery("from " + databaseName + " where " + fieldColumnName + " = '" + field + "'");
 		List<Object> list = query.list();
 		// 提交事务
 		tx.commit();
@@ -164,10 +164,8 @@ public class HibernateUtils {
 	/**
 	 * 查询数据库中现有的所有内容源
 	 * 
-	 * @return Map<String, List<String>>
-	 * 		keys:	webEssayFields
-	 *				webLinkFields
-	 *				webMediaSourceFields
+	 * @return Map<String, List<String>> keys: webEssayFields webLinkFields
+	 *         webMediaSourceFields
 	 */
 	public static Map<String, List<String>> getAllFields() {
 		// 获取Session对象
@@ -199,5 +197,23 @@ public class HibernateUtils {
 		// 关闭Session对象
 		session.close();
 		return allFields;
+	}
+
+	/**
+	 * 更新对象
+	 * 
+	 * @param object 任意对象
+	 */
+	public static void updateObject(Object object) {
+		// 获取Session对象
+		Session session = HibernateGenerater.sessionGenerate();
+		// 开始事务
+		Transaction tx = session.beginTransaction();
+		// 开始查询
+		session.update(object);
+		// 提交事务
+		tx.commit();
+		// 关闭Session对象
+		session.close();
 	}
 }

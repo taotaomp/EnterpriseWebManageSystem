@@ -1,0 +1,23 @@
+package cn.PApudding.Actions.PageActions;
+
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import cn.PApudding.Dao.HibernateUtils;
+
+/**
+ * 请求“站点管理页面”时的Action
+ * @author PApudding
+ *
+ */
+public class EnterSiteManagePageAction extends ActionSupport{
+	private List<Object> webPages;
+	
+	@Override
+	public String execute() throws Exception {
+		webPages = HibernateUtils.getAllObjects("WebPage");
+		
+		return SUCCESS;
+	}
+}

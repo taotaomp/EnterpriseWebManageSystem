@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>为部件绑定数据源</title>
 </head>
 <body>
-	<!-- 将请求转发到EnterMainSiteAction -->
-	<jsp:forward page="${pageContext.request.contextPath}/enterMainSite_index.action"/>
+<table>
+	<tr>
+		<td>部件名称</td>
+		<td>数据源选择</td>
+	</tr>
+</table>
 </body>
 </html>

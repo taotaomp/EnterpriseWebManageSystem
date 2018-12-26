@@ -20,11 +20,12 @@
 		<!-- 自动创建表 -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
-		<mapping resource="cn/PApudding/Beans/WebEssay.hbm.xml"/>
-		<mapping resource="cn/PApudding/Beans/WebLink.hbm.xml"/>
-		<mapping resource="cn/PApudding/Beans/WebMediaSource.hbm.xml"/>
-		<mapping resource="cn/PApudding/Beans/WebModel.hbm.xml"/>
-		<mapping resource="cn/PApudding/Beans/WebPage.hbm.xml"/>
-		<mapping resource="cn/PApudding/Beans/WebPageToModelBindEntity.xml"/>
+		<mapping resource="cn/PApudding/Beans/SourceBeans/WebEssay.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/SourceBeans/WebLink.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/SourceBeans/WebMediaSource.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/WebBeans/WebModel.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/WebBeans/WebPage.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/WebBeans/WebPageToModelBindEntity.xml"/>
+		<mapping resource="cn/PApudding/Beans/WebBeans/WebTemplate.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="PageActions" namespace="/" extends="struts-default">
+    	<!-- 创建页面请求的action映射 -->
+        <action name="enterCreatePage" class="cn.PApudding.Actions.PageActions.EnterCreatePageAction">
+            <result name="success">/jsps/LayoutManageJsps/PageManageJsps/CreatePage.jsp</result>
+        </action>
+        
+        <!-- 修改页面请求的action映射 -->
+        <action name="enterModifyPage" class="cn.PApudding.Actions.PageActions.EnterModifyPageAction">
+        	<result name="success"></result>
+        </action>
+        
+        <!-- 页面保存请求的action映射 -->
+        <action name="savePage" class="cn.PApudding.Actions.PageActions.SavePageAction">
+        	<result name="success"></result>
+        </action>
+        
+        <!-- 站点管理请求的action映射 -->
+        <action name="enterSiteManagePage" class="cn.PApudding.Actions.PageActions.EnterSiteManagePageAction">
+        	<result name="success"></result>
+        </action>
+        
+        <!-- 保存站点请求的action映射 -->
+        <action name="saveSite" class="cn.PApudding.Actions.PageActions.SaveSiteAction">
+        	<result name="success">/jsps/saveSiteTest/saveSite.jsp</result>
+        </action>
+        
+        <!-- 绑定数据源请求的action映射 -->
+        <action name="enterCreatePageBindDataSource" class="cn.PApudding.Actions.PageActions.EnterCreatePageBindDataSourceAction">
+        	<result name="success">/jsps/LayoutManageJsps/PageManageJsps/CreatePageBindDataSource.jsp</result>
+        </action>
+    </package>
+</struts>

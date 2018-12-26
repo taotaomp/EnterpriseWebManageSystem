@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- 此文件创建以下Action子类的映射
+	EnterCreateTemplateAction
+	SaveTemplateAction
+	EnterModifyTemplateAcrion
+ -->
+<struts>
+    <package name="TemplateActions" namespace="/" extends="struts-default">
+    	<!-- 创建模板请求的action映射 -->
+        <action name="enterCreateTemplate" class="cn.PApudding.Actions.TemplateActions.EnterCreateTemplateAction">
+            <result name="success">/jsps/LayoutManagement/createTemplate.jsp</result>
+        </action>
+        <!-- 保存模板请求的action映射 -->
+        <action name="saveTemplate" class="cn.PApudding.Actions.TemplateActions.SaveTemplateAction">
+        	<result name="success"></result>
+        </action>
+        <!-- 修改模板请求的action映射 -->
+        <action name="enterModifyTemplate" class="cn.PApudding.Actions.TemplateActions.EnterModifyTemplateAcrion">
+        	<result name="success"></result>
+        </action>
+    </package>
+</struts>

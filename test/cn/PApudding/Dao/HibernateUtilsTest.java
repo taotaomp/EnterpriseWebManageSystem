@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.PApudding.Beans.WebEssay;
+import cn.PApudding.Beans.SourceBeans.WebEssay;
 
 public class HibernateUtilsTest {
 	private WebEssay webEssay1,webEssay2;

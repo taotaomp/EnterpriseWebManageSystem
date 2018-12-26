@@ -4,6 +4,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import cn.PApudding.Beans.WebBeans.WebPage;
+import cn.PApudding.Beans.WebBeans.WebPageToModelBindEntity;
 import cn.PApudding.Dao.HibernateUtils;
 
 public class WebPageDateGetTest {

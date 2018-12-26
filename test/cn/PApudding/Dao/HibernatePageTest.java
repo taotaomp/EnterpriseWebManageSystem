@@ -5,8 +5,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import cn.PApudding.Beans.WebPage;
-import cn.PApudding.Beans.WebPageToModelBindEntity;
+import cn.PApudding.Beans.WebBeans.WebPage;
+import cn.PApudding.Beans.WebBeans.WebPageToModelBindEntity;
 
 public class HibernatePageTest {
 	@Test
