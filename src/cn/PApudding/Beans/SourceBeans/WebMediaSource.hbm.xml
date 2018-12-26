@@ -14,7 +14,7 @@
 		
 		<!-- 其他字段映射 -->
 		<property name="mediaType" column="mediaType"/>
-		<property name="mediaName" column="mediaName"/>
+		<property name="mediaName" column="mediaName" not-null="true" unique="true"/>
 		<property name="mediaUrl" column="mediaUrl"/>
 		<property name="mediaField" column="mediaField" not-null="true"/>
 	</class>

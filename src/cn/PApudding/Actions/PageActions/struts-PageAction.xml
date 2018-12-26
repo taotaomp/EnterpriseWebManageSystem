@@ -12,7 +12,7 @@
         
         <!-- 修改页面请求的action映射 -->
         <action name="enterModifyPage" class="cn.PApudding.Actions.PageActions.EnterModifyPageAction">
-        	<result name="success"></result>
+        	<result name="success">/jsps/ContentManageJsps/ContentModify.jsp</result>
         </action>
         
         <!-- 页面保存请求的action映射 -->

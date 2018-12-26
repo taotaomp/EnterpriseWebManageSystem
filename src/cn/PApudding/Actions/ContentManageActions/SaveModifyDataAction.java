@@ -1,5 +1,10 @@
 package cn.PApudding.Actions.ContentManageActions;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import cn.PApudding.Beans.SourceBeans.WebEssay;
@@ -14,59 +19,45 @@ import cn.PApudding.Dao.HibernateUtils;
  *
  */
 public class SaveModifyDataAction extends ActionSupport {
-	private String databaseName; // 数据库名
-	private String dataField; // 数据源名（Field）
-	private Object dataObject; // 用于接收数据对象的容器
+	// 创建3个对象的引用
+	WebEssay webEssay = null;
+	WebLink webLink = null;
+	WebMediaSource webMediaSource = null;
 
-	public String getDatabaseName() {
-		return databaseName;
+	public WebEssay getWebEssay() {
+		return webEssay;
 	}
 
-	public void setDatabaseName(String databaseName) {
-		this.databaseName = databaseName;
+	public void setWebEssay(WebEssay webEssay) {
+		this.webEssay = webEssay;
 	}
 
-	public String getDataField() {
-		return dataField;
+	public WebLink getWebLink() {
+		return webLink;
 	}
 
-	public void setDataField(String dataField) {
-		this.dataField = dataField;
+	public void setWebLink(WebLink webLink) {
+		this.webLink = webLink;
 	}
 
-	public Object getDataObject() {
-		return dataObject;
+	public WebMediaSource getWebMediaSource() {
+		return webMediaSource;
 	}
 
-	public void setDataObject(Object dataObject) {
-		this.dataObject = dataObject;
+	public void setWebMediaSource(WebMediaSource webMediaSource) {
+		this.webMediaSource = webMediaSource;
 	}
 
 	@Override
 	public String execute() throws Exception {
-		//创建3个对象的引用
-		WebEssay webEssay = null;
-		WebLink webLink = null;
-		WebMediaSource webMediaSource = null;
-		//根据数据库名来转换对象
-		switch (databaseName) {
-		case "WebEssay": {
-			webEssay = (WebEssay) dataObject;
+		if (webEssay != null) {
 			HibernateUtils.updateObject(webEssay);
-			break;
 		}
-		case "WebLink": {
-			webLink = (WebLink) dataObject;
+		if (webLink != null) {
 			HibernateUtils.updateObject(webLink);
-			break;
 		}
-		case "WebMediaSource": {
-			webMediaSource = (WebMediaSource) dataObject;
+		if (webMediaSource != null) {
 			HibernateUtils.updateObject(webMediaSource);
-			break;
-		}
-		default:
-			return ERROR;
 		}
 		return SUCCESS;
 	}

@@ -14,7 +14,7 @@
         
         <!-- 保存特定数据修改请求的action映射 -->
         <action name="saveModifyData" class="cn.PApudding.Actions.ContentManageActions.SaveModifyDataAction">
-            <result name="success"></result>
+            <result name="success">/enterContentManagePage.action</result>
         </action>
         
         <!-- 进入特定数据创建请求的action映射 -->
@@ -24,7 +24,7 @@
         
         <!-- 进入特定数据修改请求的action映射 -->
         <action name="enterModifyData" class="cn.PApudding.Actions.ContentManageActions.EnterModifyDataAction">
-        	<result name="success"></result>
+        	<result name="success">/jsps/ContentManageJsps/ContentModify.jsp</result>
         </action>
         
         <!-- 数据特定删除请求的action映射 -->

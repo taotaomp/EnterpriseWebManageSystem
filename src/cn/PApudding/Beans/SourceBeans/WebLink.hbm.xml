@@ -13,7 +13,7 @@
 		</id>
 		
 		<!-- 其他字段映射 -->
-		<property name="linkName" column="linkName"/>
+		<property name="linkName" column="linkName" not-null="true" unique="true"/>
 		<property name="linkUrl" column="linkUrl"/>
 		<property name="linkField" column="linkField" not-null="true"/>
 	</class>

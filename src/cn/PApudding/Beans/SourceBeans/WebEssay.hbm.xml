@@ -13,7 +13,7 @@
 		</id>
 		
 		<!-- 其他字段映射 -->
-		<property name="essayTitle" column="essayTitle"/>
+		<property name="essayTitle" column="essayTitle" not-null="true" unique="true"/>
 		<property name="essayContent" column="essayContent" type="text"/>
 		<property name="essayField" column="essayField" not-null="true"/>
 	</class>

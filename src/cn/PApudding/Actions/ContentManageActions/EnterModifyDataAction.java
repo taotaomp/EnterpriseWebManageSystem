@@ -38,15 +38,15 @@ public class EnterModifyDataAction extends ActionSupport {
 		String sql;
 		switch (databaseName) {
 		case "WebEssay": {
-			sql = "FROM " + databaseName + " WHERE essayTitle = " + dataName;
+			sql = "FROM " + databaseName + " WHERE essayTitle = " + "'" + dataName + "'";
 			break;
 		}
 		case "WebLink": {
-			sql = "FROM " + databaseName + " WHERE linkName = " + dataName;
+			sql = "FROM " + databaseName + " WHERE linkName = " + "'" + dataName + "'";
 			break;
 		}
 		case "WebMediaSource": {
-			sql = "FROM " + databaseName + " WHERE mediaName = " + dataName;
+			sql = "FROM " + databaseName + " WHERE mediaName = " + "'" + dataName + "'";
 			break;
 		}
 		default:

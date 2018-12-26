@@ -26,6 +26,7 @@
 		//获取数据库名，根据数据库名来确认资源的对象类别
 		String databaseName = (String) request.getAttribute("databaseName");
 		switch (databaseName) {
+		//资源对象为文章资源
 		case "WebEssay": {
 	%>
 	<table>
@@ -42,7 +43,7 @@
 			<td><%=essay.getEssayTitle() %></td>
 			<td>
 				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebEssay&dataName=<%=essay.getEssayTitle() %>">修改文章</a>
-				<a href="${pageContext.request.contextPath }/deleteData.action">删除文章</a>
+				<a href="${pageContext.request.contextPath }/deleteData.action?databaseName=WebEssay&dataName=<%=essay.getEssayTitle() %>">删除文章</a>
 			</td>
 		</tr>
 		<%
@@ -53,6 +54,7 @@
 	<%
 		break;
 		}
+		//资源对象是链接资源
 		case "WebLink": {
 	%>
 	<table>
@@ -68,7 +70,7 @@
 		<tr>
 			<td><%=link.getLinkName() %></td>
 			<td>
-				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebEssay&dataName=<%=link.getLinkName() %>">修改链接</a>
+				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebLink&dataName=<%=link.getLinkName() %>">修改链接</a>
 				<a href="${pageContext.request.contextPath }/deleteData.action">删除链接</a>
 			</td>
 		</tr>
@@ -80,6 +82,7 @@
 	<%
 			break;
 		}
+		//资源对象是媒体资源
 		case "WebMediaSource": {
 	%>
 	<table>
@@ -95,7 +98,7 @@
 		<tr>
 			<td><%=webMediaSource.getMediaName()%></td>
 			<td>
-				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebEssay&dataName=<%=webMediaSource.getMediaName()%>">修改媒体</a>
+				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebMediaSource&dataName=<%=webMediaSource.getMediaName()%>">修改媒体</a>
 				<a href="${pageContext.request.contextPath }/deleteData.action">删除媒体</a>
 			</td>
 		</tr>
