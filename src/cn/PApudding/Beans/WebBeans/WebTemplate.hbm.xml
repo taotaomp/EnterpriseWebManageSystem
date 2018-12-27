@@ -15,6 +15,12 @@
 		<!-- 其他字段映射 -->
 		<property name="templateName" column="templateName" unique="true"/>
 		<property name="templateType" column="templateType"/>
-		<property name="templateFileCode" column="templateFileCode" type="text"/>
+		<set name="templateToModelBindEntities" lazy="false">
+			<!-- 多的一方的外键名 -->
+			<key column="fk_templateToModelBindEntitiy"></key>
+			<!-- 多的一方的类 -->
+			<one-to-many class="cn.PApudding.Beans.WebBeans.WebTemplateToModelBindEntity"/>
+		
+		</set>
 	</class>
 </hibernate-mapping>

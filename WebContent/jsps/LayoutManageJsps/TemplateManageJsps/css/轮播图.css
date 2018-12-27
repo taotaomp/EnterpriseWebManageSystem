@@ -1,0 +1,64 @@
+* {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .slider {
+      height: 340px;
+      width: 790px;
+      margin: 100px auto;
+      position: relative;
+      display: none;
+      border: 1px solid gainsboro;
+    }
+    .slider>ul>li>a>img{
+    	width: 100%;
+    	height: 100%;
+    }
+    .slider li {
+      position: absolute;
+      display: none;
+    }
+    
+    .slider li:first-child {
+      display: block;
+    }
+    
+    .arrow {
+      display: none;
+    }
+    
+    .slider:hover .arrow {
+      display: block;
+    }
+    
+    .arrow-left,
+    .arrow-right {
+      font-family: "SimSun", "宋体";
+      width: 30px;
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 50%;
+      margin-top: -30px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 60px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 30px;
+    }
+    
+    .arrow-left:hover,
+    .arrow-right:hover {
+      background-color: rgba(0, 0, 0, .5);
+    }
+    
+    .arrow-left {
+      left: 0;
+    }
+    
+    .arrow-right {
+      right: 0;
+    }

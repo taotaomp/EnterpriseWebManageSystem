@@ -7,6 +7,18 @@
 <title>网站布局管理中心</title>
 </head>
 <body>
+	<p>模板管理</p>
+		<ul>
+			<li>
+				<a href="${pageContext.request.contextPath}/enterCreateTemplate.action">创建模板</a>
+			</li>
+			<!-- <li>
+				<a href="${pageContext.request.contextPath}/enterModifyTemplate.action">修改模板</a>
+			</li> -->
+			<li>
+				<a href="${pageContext.request.contextPath}/enterDeleteTemplate.action">删除模板</a>
+			</li>
+		</ul>
 	<p>页面管理</p>
 		<ul>
 			<li>
@@ -17,16 +29,6 @@
 			</li>
 			<li>
 				<a href="${pageContext.request.contextPath}/enterSiteManagePage.action">站点管理</a>
-			</li>
-		</ul>
-		
-	<p>模板管理</p>
-		<ul>
-			<li>
-				<a href="${pageContext.request.contextPath}/enterCreateTemplate.action">创建模板</a>
-			</li>
-			<li>
-				<a href="${pageContext.request.contextPath}/enterModifyTemplate.action">修改模板</a>
 			</li>
 		</ul>
 </body>

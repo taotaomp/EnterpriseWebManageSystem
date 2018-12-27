@@ -1,0 +1,42 @@
+#message{
+	position: fixed;
+	right: 10px;
+	top: 100px;
+	width: 200px;
+	height: 200px;
+	background-image: url(../img/message.jpg);
+	background-size: 100% 100%;
+	border: 1px solid gainsboro;
+	display: none;
+	z-index: 30;
+}
+#messagePage{
+	width: 600px;
+	height: 400px;
+	border: 1px solid gainsboro;
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	z-index: 40;
+	display: none;
+}
+#messagePage>form>textarea{
+	width: 500px;
+	height: 200px;
+	overflow: auto;
+	margin-top: 20px;
+	margin-left: 50px;
+}
+#messagePage>form>p{
+	margin-top: 20px;
+	margin-left: 50px;
+}
+#messagePage p>input{
+	margin-left: 10px;
+}
+#messagePage>form>input{
+	width: 100px;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+

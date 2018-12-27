@@ -27,5 +27,6 @@
 		<mapping resource="cn/PApudding/Beans/WebBeans/WebPage.hbm.xml"/>
 		<mapping resource="cn/PApudding/Beans/WebBeans/WebPageToModelBindEntity.xml"/>
 		<mapping resource="cn/PApudding/Beans/WebBeans/WebTemplate.hbm.xml"/>
+		<mapping resource="cn/PApudding/Beans/WebBeans/WebTemplateToModelBindEntity.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

@@ -15,11 +15,19 @@
         </action>
         <!-- 保存模板请求的action映射 -->
         <action name="saveTemplate" class="cn.PApudding.Actions.TemplateActions.SaveTemplateAction">
-        	<result name="success"></result>
+        	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
         <!-- 修改模板请求的action映射 -->
         <action name="enterModifyTemplate" class="cn.PApudding.Actions.TemplateActions.EnterModifyTemplateAcrion">
         	<result name="success"></result>
+        </action>
+        <!-- 进入删除模板请求的action映射 -->
+        <action name="enterDeleteTemplate" class="cn.PApudding.Actions.TemplateActions.EnterDeleteTemplateAction">
+        	<result name="success">/jsps/LayoutManageJsps/TemplateManageJsps/DeleteTemplate.jsp</result>
+        </action>
+        <!-- 进入删除模板请求的action映射 -->
+        <action name="deleteTemplate" class="cn.PApudding.Actions.TemplateActions.DeleteTemplateAction">
+        	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
     </package>
 </struts>

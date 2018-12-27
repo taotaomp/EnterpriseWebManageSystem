@@ -23,14 +23,10 @@ import cn.PApudding.Dao.HibernateUtils;
  */
 public class EnterCreateTemplateAction extends ActionSupport {
 
-	List<Object> listAllModelContainer;
+	
 
 	@Override
 	public String execute() throws Exception {
-		// 从数据库中读取所有的部件
-		listAllModelContainer = HibernateUtils.getAllObjects("WebModel");
-		// 将所有部件的部件放入Request请求中，方便JSP接收
-		ServletActionContext.getRequest().setAttribute("listAllModelContainer", listAllModelContainer);
 
 		return SUCCESS;
 	}

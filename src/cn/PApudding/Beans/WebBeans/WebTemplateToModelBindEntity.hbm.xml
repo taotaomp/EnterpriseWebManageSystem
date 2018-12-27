@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<!-- 建立WebTemplateToModelBindEntity类与WebTemplateToModelBindEntity表关系映射  -->
+	<class name="cn.PApudding.Beans.WebBeans.WebTemplateToModelBindEntity" table="WebTemplateToModelBindEntity">
+		<!-- 主键映射 -->
+		<id name="id" column="id">
+			<!-- native生成策略 -->
+			<generator class="native"/>
+		</id>
+		
+		<!-- 其他字段映射 -->
+		<property name="modelName" column="modelName"/>
+		<property name="modelStyleValue" column="modelStyleValue"/>
+		
+	</class>
+</hibernate-mapping>

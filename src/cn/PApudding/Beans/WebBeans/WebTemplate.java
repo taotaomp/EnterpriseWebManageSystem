@@ -1,5 +1,8 @@
 package cn.PApudding.Beans.WebBeans;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 模板实体
  * 
@@ -10,8 +13,7 @@ public class WebTemplate {
 	private int id; // id
 	private String templateName; // 模板的名称
 	private String templateType; // 模板的类型
-	private String templateFileCode; // 模板的整体代码
-	//private String 
+	private Set<WebTemplateToModelBindEntity> templateToModelBindEntities = new HashSet<WebTemplateToModelBindEntity>(); 
 
 	public int getId() {
 		return id;
@@ -37,12 +39,12 @@ public class WebTemplate {
 		this.templateType = templateType;
 	}
 
-	public String getTemplateFileCode() {
-		return templateFileCode;
+	public Set<WebTemplateToModelBindEntity> getTemplateToModelBindEntities() {
+		return templateToModelBindEntities;
 	}
 
-	public void setTemplateFileCode(String templateFileCode) {
-		this.templateFileCode = templateFileCode;
+	public void setTemplateToModelBindEntities(Set<WebTemplateToModelBindEntity> templateToModelBindEntities) {
+		this.templateToModelBindEntities = templateToModelBindEntities;
 	}
 
 }
