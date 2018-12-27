@@ -1,11 +1,5 @@
 package cn.PApudding.Actions.ContentManageActions;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.ServletActionContext;
-
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import cn.PApudding.Beans.SourceBeans.WebEssay;
@@ -14,19 +8,19 @@ import cn.PApudding.Beans.SourceBeans.WebMediaSource;
 import cn.PApudding.Dao.HibernateUtils;
 
 /**
- * 进入数据修改页面的请求
+ * 保存创建的资源的请求的action
  * 
  * @author PApudding
  *
  */
-public class SaveModifyDataAction extends ActionSupport {
+public class SaveCreateDataAction extends ActionSupport {
 	// 创建3个对象的引用
 	WebEssay webEssay = null;
 	WebLink webLink = null;
 	WebMediaSource webMediaSource = null;
-	//用于重定向的参数放置
-	private String databaseName;	//数据库名
-	private String dataField;	//数据源名（Field）
+	// 用于重定向的参数放置
+	private String databaseName; // 数据库名
+	private String dataField; // 数据源名（Field）
 
 	public WebEssay getWebEssay() {
 		return webEssay;
@@ -71,26 +65,25 @@ public class SaveModifyDataAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		if (webEssay != null) {
-			HibernateUtils.updateObject(webEssay);
-			//配置重定向参数
-			databaseName="WebEssay";
-			dataField=webEssay.getEssayField();
+			HibernateUtils.saveObject(webEssay);
+			// 配置重定向参数
+			databaseName = "WebEssay";
+			dataField = webEssay.getEssayField();
 
 		}
 		if (webLink != null) {
-			HibernateUtils.updateObject(webLink);
-			//配置重定向参数
-			databaseName="WebLink";
-			dataField=webLink.getLinkField();
+			HibernateUtils.saveObject(webLink);
+			// 配置重定向参数
+			databaseName = "WebLink";
+			dataField = webLink.getLinkField();
 		}
 		if (webMediaSource != null) {
-			HibernateUtils.updateObject(webMediaSource);
-			//配置重定向参数
-			databaseName="WebMediaSource";
-			dataField=webMediaSource.getMediaField();
+			HibernateUtils.saveObject(webMediaSource);
+			// 配置重定向参数
+			databaseName = "WebMediaSource";
+			dataField = webMediaSource.getMediaField();
 		}
-		
-		
+
 		return SUCCESS;
 	}
 }

@@ -6,8 +6,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
-</script>
+<style type="text/css">
+	table {
+		border: 1px solid;	
+	}
+	table tr{
+		border: 1px solid;	
+	}
+	table tr td{
+		border: 1px solid;	
+	}	
+</style>
 <meta charset="UTF-8">
 <title>内容更改</title>
 </head>

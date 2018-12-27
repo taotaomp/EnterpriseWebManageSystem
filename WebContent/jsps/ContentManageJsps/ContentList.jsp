@@ -50,7 +50,7 @@
 			}
 		%>
 	</table>
-	<a href="">新建文章</a>
+	<a href="${pageContext.request.contextPath }/enterCreateData.action?databaseName=WebEssay">新建文章</a>
 	<%
 		break;
 		}
@@ -71,14 +71,14 @@
 			<td><%=link.getLinkName() %></td>
 			<td>
 				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebLink&dataName=<%=link.getLinkName() %>">修改链接</a>
-				<a href="${pageContext.request.contextPath }/deleteData.action">删除链接</a>
+				<a href="${pageContext.request.contextPath }/deleteData.action?databaseName=WebLink&dataName=<%=link.getLinkName() %>">删除链接</a>
 			</td>
 		</tr>
 		<%
 			}
 		%>
 	</table>
-	<a href="">新建链接</a>
+	<a href="${pageContext.request.contextPath }/enterCreateData.action?databaseName=WebLink">新建链接</a>
 	<%
 			break;
 		}
@@ -99,14 +99,14 @@
 			<td><%=webMediaSource.getMediaName()%></td>
 			<td>
 				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebMediaSource&dataName=<%=webMediaSource.getMediaName()%>">修改媒体</a>
-				<a href="${pageContext.request.contextPath }/deleteData.action">删除媒体</a>
+				<a href="${pageContext.request.contextPath }/deleteData.action?databaseName=WebMediaSource&dataName=<%=webMediaSource.getMediaName()%>">删除媒体</a>
 			</td>
 		</tr>
 		<%
 			}
 		%>
 	</table>
-	<a href="">新建媒体</a>
+	<a href="${pageContext.request.contextPath }/enterCreateData.action?databaseName=WebMediaSource">新建媒体</a>
 	<%
 			break;
 		}

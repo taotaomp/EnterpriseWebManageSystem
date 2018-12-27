@@ -14,12 +14,27 @@
         
         <!-- 保存特定数据修改请求的action映射 -->
         <action name="saveModifyData" class="cn.PApudding.Actions.ContentManageActions.SaveModifyDataAction">
-            <result name="success">/enterContentManagePage.action</result>
+            <!-- 结果进行重定向 -->
+            <result name="success" type="redirectAction">
+            	<param name="actionName">enterDataSource</param> 
+            	<param name="databaseName">${databaseName}</param>
+            	<param name="dataField">${dataField}</param>
+            </result>
         </action>
         
         <!-- 进入特定数据创建请求的action映射 -->
         <action name="enterCreateData" class="cn.PApudding.Actions.ContentManageActions.EnterCreateDataAction">
-        	<result name="success"></result>
+        	<result name="success">/jsps/ContentManageJsps/ContentCreate.jsp</result>
+        </action>
+        
+        <!-- 保存特定数据创建请求的action映射 -->
+        <action name="saveCreateData" class="cn.PApudding.Actions.ContentManageActions.SaveCreateDataAction">
+        	 <!-- 结果进行重定向 -->
+            <result name="success" type="redirectAction">
+            	<param name="actionName">enterDataSource</param> 
+            	<param name="databaseName">${databaseName}</param>
+            	<param name="dataField">${dataField}</param>
+            </result>
         </action>
         
         <!-- 进入特定数据修改请求的action映射 -->
@@ -29,7 +44,12 @@
         
         <!-- 数据特定删除请求的action映射 -->
         <action name="deleteData" class="cn.PApudding.Actions.ContentManageActions.DeleteDataAction">
-        	<result name="success"></result>
+        	<!-- 结果进行重定向 -->
+        	<result name="success" type="redirectAction">
+            	<param name="actionName">enterDataSource</param> 
+            	<param name="databaseName">${databaseName}</param>
+            	<param name="dataField">${dataField}</param>
+            </result>
         </action>
     </package>
 </struts>
