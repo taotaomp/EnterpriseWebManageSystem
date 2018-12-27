@@ -35,6 +35,7 @@ public class EnterDataSourceAction extends ActionSupport{
 
 	@Override
 		public String execute() throws Exception {
+			dataField = java.net.URLDecoder.decode(dataField, "UTF-8");
 			//获取指定数据源的全部对象放入集合
 			List<Object> list = HibernateUtils.getObjectsByField(databaseName, dataField);
 			ServletActionContext.getRequest().setAttribute("data", list);

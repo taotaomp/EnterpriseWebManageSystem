@@ -42,8 +42,8 @@
 		<tr>
 			<td><%=essay.getEssayTitle() %></td>
 			<td>
-				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebEssay&dataName=<%=essay.getEssayTitle() %>">修改文章</a>
-				<a href="${pageContext.request.contextPath }/deleteData.action?databaseName=WebEssay&dataName=<%=essay.getEssayTitle() %>">删除文章</a>
+				<a href="${pageContext.request.contextPath }/enterModifyData.action?databaseName=WebEssay&dataName=<%=java.net.URLEncoder.encode(essay.getEssayTitle(), "UTF-8") %>">修改文章</a>
+				<a href="${pageContext.request.contextPath }/deleteData.action?databaseName=WebEssay&dataName=<%=java.net.URLEncoder.encode(essay.getEssayTitle(), "UTF-8") %>">删除文章</a>
 			</td>
 		</tr>
 		<%

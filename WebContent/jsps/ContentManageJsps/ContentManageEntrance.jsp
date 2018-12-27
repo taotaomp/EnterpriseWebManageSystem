@@ -16,7 +16,7 @@
 		<%
 			for (String webEssayField : webEssayFields) {
 		%>
-		<li><a href="${pageContext.request.contextPath}/enterDataSource.action?databaseName=WebEssay&dataField=<%=webEssayField%>"><%=webEssayField%></a></li>
+		<li><a href="${pageContext.request.contextPath}/enterDataSource.action?databaseName=WebEssay&dataField=<%=java.net.URLEncoder.encode(webEssayField, "UTF-8")%>"><%=webEssayField%></a></li>
 		<%
 			}
 		%>
@@ -29,7 +29,7 @@
 		<%
 			for (String webLinkField : webLinkFields) {
 		%>
-		<li><a href="${pageContext.request.contextPath}/enterDataSource.action?databaseName=WebLink&dataField=<%=webLinkField%>"><%=webLinkField%></a></li>
+		<li><a href="${pageContext.request.contextPath}/enterDataSource.action?databaseName=WebLink&dataField=<%=java.net.URLEncoder.encode(webLinkField, "UTF-8")%>"><%=webLinkField%></a></li>
 		<%
 			}
 		%>
@@ -42,7 +42,7 @@
 		<%
 			for (String webMediaSourceField : webMediaSourceFields) {
 		%>
-		<li><a href="${pageContext.request.contextPath}/enterDataSource.action?databaseName=WebMediaSource&dataField=<%=webMediaSourceField%>"><%=webMediaSourceField%></a></li>
+		<li><a href="${pageContext.request.contextPath}/enterDataSource.action?databaseName=WebMediaSource&dataField=<%=java.net.URLEncoder.encode(webMediaSourceField, "UTF-8")%>"><%=webMediaSourceField%></a></li>
 		<%
 			}
 		%>

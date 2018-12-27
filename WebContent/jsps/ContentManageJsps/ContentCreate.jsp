@@ -141,7 +141,7 @@ table tr td {
 					</select>
 				</td>
 				<td id="butTd">
-					<button id="but" value="新建数据源" onclick="newdataSourceWebLink()"></button>
+					<input type="button" id="but" value="新建数据源" onclick="newdataSourceWebLink()">
 					<!--  <input id="ds" hidden="true" name="webLink.linkField">-->
 				</td>
 			</tr>
@@ -189,7 +189,7 @@ table tr td {
 					</select>
 				</td>
 				<td id="butTd">
-					<button id="but" value="新建数据源" onclick="newdataSourceWebMediaSource()"></button>
+					<input type="button" id="but" value="新建数据源" onclick="newdataSourceWebMediaSource()">
 					<!-- <input id="ds" hidden="true" name="webMediaSource.mediaField"> -->
 				</td>
 			</tr>

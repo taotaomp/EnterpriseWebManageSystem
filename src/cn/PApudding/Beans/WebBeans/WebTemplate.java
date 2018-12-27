@@ -11,6 +11,7 @@ public class WebTemplate {
 	private String templateName; // 模板的名称
 	private String templateType; // 模板的类型
 	private String templateFileCode; // 模板的整体代码
+	//private String 
 
 	public int getId() {
 		return id;

@@ -34,7 +34,9 @@ public class EnterModifyDataAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-
+		//URL×ªÂë
+		dataName = java.net.URLDecoder.decode(dataName, "UTF-8");
+		
 		String sql;
 		switch (databaseName) {
 		case "WebEssay": {

@@ -48,7 +48,9 @@ public class DeleteDataAction extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
-
+		//URL转码
+		dataName = java.net.URLDecoder.decode(dataName, "UTF-8");
+		
 		String sql;
 		switch (databaseName) {
 		case "WebEssay": {
@@ -61,6 +63,8 @@ public class DeleteDataAction extends ActionSupport {
 			// 重定向参数配置
 			WebEssay webEssay = (WebEssay) object;
 			dataField = webEssay.getEssayField();
+			//URL转码
+			dataField = java.net.URLDecoder.decode(dataField, "UTF-8");
 			break;
 		}
 		case "WebLink": {
@@ -73,6 +77,8 @@ public class DeleteDataAction extends ActionSupport {
 			// 重定向参数配置
 			WebLink webLink = (WebLink) object;
 			dataField = webLink.getLinkField();
+			//URL转码
+			dataField = java.net.URLDecoder.decode(dataField, "UTF-8");
 			break;
 		}
 		case "WebMediaSource": {
@@ -85,6 +91,8 @@ public class DeleteDataAction extends ActionSupport {
 			// 重定向参数配置
 			WebMediaSource webMediaSource = (WebMediaSource) object;
 			dataField = webMediaSource.getMediaField();
+			//URL转码
+			dataField = java.net.URLDecoder.decode(dataField, "UTF-8");
 			break;
 		}
 		default:

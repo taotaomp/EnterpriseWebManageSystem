@@ -69,6 +69,8 @@ public class SaveCreateDataAction extends ActionSupport {
 			// 配置重定向参数
 			databaseName = "WebEssay";
 			dataField = webEssay.getEssayField();
+			//URL转码
+			dataField = java.net.URLDecoder.decode(dataField, "UTF-8");
 
 		}
 		if (webLink != null) {
@@ -76,12 +78,16 @@ public class SaveCreateDataAction extends ActionSupport {
 			// 配置重定向参数
 			databaseName = "WebLink";
 			dataField = webLink.getLinkField();
+			//URL转码
+			dataField = java.net.URLDecoder.decode(dataField, "UTF-8");
 		}
 		if (webMediaSource != null) {
 			HibernateUtils.saveObject(webMediaSource);
 			// 配置重定向参数
 			databaseName = "WebMediaSource";
 			dataField = webMediaSource.getMediaField();
+			//URL转码
+			dataField = java.net.URLDecoder.decode(dataField, "UTF-8");
 		}
 
 		return SUCCESS;
