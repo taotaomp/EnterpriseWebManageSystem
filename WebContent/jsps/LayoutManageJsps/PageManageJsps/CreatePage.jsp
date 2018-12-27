@@ -7,6 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>创建页面</title>
+<style type="text/css">
+	table {
+		border: 1px solid;	
+	}
+	table tr{
+		border: 1px solid;	
+	}
+	table tr td{
+		border: 1px solid;	
+	}	
+</style>
 </head>
 <body>
 	<h3>请选择要使用的模板</h3>
@@ -26,7 +37,7 @@
 					<%=webTemplate.getTemplateType() %>
 				</td>
 				<td>
-					<a href="${pageContext.request.contextPath}/enterCreatePageBindDataSource.action?webTemplateName=<%=webTemplate.getTemplateName() %>">使用该模板</a>
+					<a href="${pageContext.request.contextPath}/enterCreatePageBindDataSource.action?id=<%=webTemplate.getId() %>">使用该模板</a>
 				</td>
 			</tr>
 		<%} %>
