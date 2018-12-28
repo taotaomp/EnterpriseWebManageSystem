@@ -28,7 +28,8 @@
 			<td>模板类型</td>
 			<td>模板选择</td>
 		</tr>
-		<%for(WebTemplate webTemplate:webTemplates){ %>
+		<%if(webTemplates!=null) {%>
+			<%for(WebTemplate webTemplate:webTemplates){ %>
 			<tr>
 				<td>
 					<%=webTemplate.getTemplateName() %>
@@ -40,7 +41,9 @@
 					<a href="${pageContext.request.contextPath}/enterCreatePageBindDataSource.action?id=<%=webTemplate.getId() %>">使用该模板</a>
 				</td>
 			</tr>
+			<%} %>
 		<%} %>
 	</table>
+	<p><a href="${pageContext.request.contextPath}/jsps/LayoutManageJsps/LayoutManageEntrance.jsp">返回</a></p>
 </body>
 </html>

@@ -95,7 +95,7 @@ table tr td {
 			</tr>
 			<tr>
 				<td colspan="3"><textarea id="WebEssayContent"
-						name="webEssay.essayContent" cols="60" rows="90"></textarea>
+						name="webEssay.essayContent" cols="100" rows="30"></textarea>
 				</td>
 				<td style="border:0px"></td>
 				<td style="border:0px"></td>
@@ -201,5 +201,6 @@ table tr td {
 		}
 		}
 	%>
+	<p><a href="${pageContext.request.contextPath }/jsps/enterContentManagePage.action">返回</a></p>
 </body>
 </html>

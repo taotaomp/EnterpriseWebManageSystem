@@ -30,7 +30,10 @@
 		List<String> webMediaSourceFields = (List<String>) request.getAttribute("webMediaSourceFields");
 		//获取模板
 		WebTemplate webTemplate = (WebTemplate) request.getAttribute("webTemplate");
-		Set<WebTemplateToModelBindEntity> bindEntities = webTemplate.getTemplateToModelBindEntities();
+		Set<WebTemplateToModelBindEntity> bindEntities = null;
+		if(webTemplate!=null){
+			bindEntities = webTemplate.getTemplateToModelBindEntities();
+		}
 		//随机数生成
 		Random random = new Random();
 		int i = 0;
@@ -47,7 +50,8 @@
 				<td>数据源选择</td>
 			</tr>
 		<%
-			for(WebTemplateToModelBindEntity bindEntity : bindEntities){
+			if(bindEntities!=null){
+				for(WebTemplateToModelBindEntity bindEntity : bindEntities){
 		%>
 			<tr>
 				<td>
@@ -61,33 +65,37 @@
 				<!-- 生成随机数作为模板的唯一标识 -->
 					<select name="<%=randomNum%>">
 						<%
-							for(String string :webEssayFields){
-								
+							if(webEssayFields!=null){
+								for(String string :webEssayFields){
 						%>
 							<option value="WebEssay#<%=string%>"><%=string%></option>
 						<%
+								}
 							}
 						%>
 						<%
-							for(String string :webLinkFields){
-								
+							if(webLinkFields!=null){
+								for(String string :webLinkFields){			
 						%>
 							<option value="WebLink#<%=string%>"><%=string%></option>
 						<%
+								}
 							}
 						%>
 						<%
-							for(String string :webMediaSourceFields){
-								
+							if(webMediaSourceFields!=null){
+								for(String string :webMediaSourceFields){	
 						%>
 							<option value="WebMediaSource#<%=string%>"><%=string%></option>
 						<%
+								}
 							}
 						%>
 					</select>
 				</td>
 			</tr>
 		<%
+				}
 			}
 		%>		
 			<tr>
@@ -96,6 +104,6 @@
 			</tr>	
 		</table>
 	</form>
-
+	<p><a href="${pageContext.request.contextPath}/enterCreatePage.action">返回</a></p>
 </body>
 </html>

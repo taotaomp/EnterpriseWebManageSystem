@@ -28,16 +28,19 @@
 	</tr>
 	<%
 		List<WebTemplate> webTemplateList = (List<WebTemplate>)request.getAttribute("templates");
-		for(WebTemplate template:webTemplateList){
+		if(webTemplateList!=null){
+			for(WebTemplate template:webTemplateList){
 	%>
 		<tr>
 		<td><%=template.getTemplateName() %></td>
-		<td><a href="${pageContext.request.contextPath}/deleteTemplate?id=<%=template.getId() %>">删除</a></td>
+		<td><a href="${pageContext.request.contextPath}/deleteTemplate.action?id=<%=template.getId() %>">删除</a></td>
 		</tr>
 		
 	<%
+			}
 		}
 	%>
 	</table>
+	<p><a href="${pageContext.request.contextPath}/jsps/LayoutManageJsps/LayoutManageEntrance.jsp">返回</a></p>
 </body>
 </html>

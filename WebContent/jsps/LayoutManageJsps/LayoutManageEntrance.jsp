@@ -16,7 +16,7 @@
 				<a href="${pageContext.request.contextPath}/enterModifyTemplate.action">修改模板</a>
 			</li> -->
 			<li>
-				<a href="${pageContext.request.contextPath}/enterDeleteTemplate.action">删除模板</a>
+				<a href="${pageContext.request.contextPath}/enterDeleteTemplate.action">查看/删除模板</a>
 			</li>
 		</ul>
 	<p>页面管理</p>
@@ -25,11 +25,12 @@
 				<a href="${pageContext.request.contextPath}/enterCreatePage.action">创建页面</a>
 			</li>
 			<li>
-				<a href="${pageContext.request.contextPath}/enterModifyPage.action">修改页面</a>
+				<a href="${pageContext.request.contextPath}/enterDeletePage.action">查看/删除页面</a>
 			</li>
 			<li>
 				<a href="${pageContext.request.contextPath}/enterSiteManagePage.action">站点管理</a>
 			</li>
 		</ul>
+	<p><a href="${pageContext.request.contextPath }/jsps/ManageSystemEntrance.jsp">返回</a></p>
 </body>
 </html>

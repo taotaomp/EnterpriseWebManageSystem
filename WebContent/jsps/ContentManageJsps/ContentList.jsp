@@ -118,6 +118,6 @@
 		}
 		}
 	%>
-
+	<p><a href="${pageContext.request.contextPath }/jsps/enterContentManagePage.action">返回</a></p>
 </body>
 </html>

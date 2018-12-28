@@ -15,7 +15,14 @@ import cn.PApudding.SiteGenerator.SiteJspGenerator;
 
 /**
  * 请求保存创建的站点时的Action
- * 
+ * ----------------------------------
+ * 功能：
+ * 	将创建的站点以.jsp文件的形式，
+ *  保存到   %网站根目录路径%/jsps/MainSiteJsp  文件夹下
+ * ----------------------------------
+ * 注意：
+ *  每次在Eclipse中对项目进行重新部署，将会使创建的站点丢失！ 
+ *  
  * @author PApudding
  *
  */

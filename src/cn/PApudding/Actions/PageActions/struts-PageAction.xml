@@ -9,30 +9,32 @@
         <action name="enterCreatePage" class="cn.PApudding.Actions.PageActions.EnterCreatePageAction">
             <result name="success">/jsps/LayoutManageJsps/PageManageJsps/CreatePage.jsp</result>
         </action>
-        
-        <!-- 修改页面请求的action映射 -->
-        <action name="enterModifyPage" class="cn.PApudding.Actions.PageActions.EnterModifyPageAction">
-        	<result name="success">/jsps/ContentManageJsps/ContentModify.jsp</result>
+        <!-- 绑定数据源请求的action映射 -->
+        <action name="enterCreatePageBindDataSource" class="cn.PApudding.Actions.PageActions.EnterCreatePageBindDataSourceAction">
+        	<result name="success">/jsps/LayoutManageJsps/PageManageJsps/CreatePageBindDataSource.jsp</result>
         </action>
-        
         <!-- 页面保存请求的action映射 -->
         <action name="savePage" class="cn.PApudding.Actions.PageActions.SavePageAction">
         	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
         
+        <!-- 进入删除页面请求的action映射 -->
+        <action name="enterDeletePage" class="cn.PApudding.Actions.PageActions.EnterDeletePageAction">
+        	<result name="success">/jsps/LayoutManageJsps/PageManageJsps/DeletePage.jsp</result>
+        </action>
+        <!-- 删除页面请求的action映射 -->
+        <action name="deletePage" class="cn.PApudding.Actions.PageActions.DeletePageAction">
+        	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
+        </action>
+         
         <!-- 站点管理请求的action映射 -->
         <action name="enterSiteManagePage" class="cn.PApudding.Actions.PageActions.EnterSiteManagePageAction">
         	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteSetting.jsp</result>
-        </action>
-        
+        </action>       
         <!-- 保存站点请求的action映射 -->
         <action name="saveSite" class="cn.PApudding.Actions.PageActions.SaveSiteAction">
         	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
-        
-        <!-- 绑定数据源请求的action映射 -->
-        <action name="enterCreatePageBindDataSource" class="cn.PApudding.Actions.PageActions.EnterCreatePageBindDataSourceAction">
-        	<result name="success">/jsps/LayoutManageJsps/PageManageJsps/CreatePageBindDataSource.jsp</result>
-        </action>
+          
     </package>
 </struts>

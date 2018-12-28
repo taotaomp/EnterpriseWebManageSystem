@@ -42,7 +42,7 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td colspan="2"><textarea id="WebEssayContent" name="webEssay.essayContent" cols="60" rows="90" >
+					<td colspan="2"><textarea id="WebEssayContent" name="webEssay.essayContent" cols="100" rows="30" >
 						<%=essay.getEssayContent() %>
 					</textarea>
 					<td></td>
@@ -109,5 +109,6 @@
 		}
 		}
 	%>
+	<p><a href="${pageContext.request.contextPath }/jsps/enterContentManagePage.action">返回</a></p>
 </body>
 </html>

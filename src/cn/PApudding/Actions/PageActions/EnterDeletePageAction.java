@@ -1,5 +1,7 @@
 package cn.PApudding.Actions.PageActions;
 
+import java.util.List;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -16,20 +18,17 @@ class WebPage
 */
 
 /**
- * 进入“修改页面”页面请求的Action
+ * 进入“删除页面”页面请求的Action
  * 
  * @author PApudding
  *
  */
-public class EnterModifyPageAction extends ActionSupport {
-	private String queryPageName; // 即将修改的WebPage名
-
+public class EnterDeletePageAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		// 从数据库中获取WebPage
-		WebPage webPage = (WebPage) HibernateUtils
-				.getSingleObjectBySql("FORM WebPage WHERE pageName = " + queryPageName);
-		ServletActionContext.getRequest().setAttribute("WebPage", webPage);
+		List<Object> webPageList = HibernateUtils.getAllObjects("WebPage");
+		ServletActionContext.getRequest().setAttribute("pages", webPageList);
 		return SUCCESS;
 	}
 }
