@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>站点设置</title>
 <script type="text/javascript">
-	int i = 0;
+	
 	function addPage(){
 		var container = document.getElementById("pageContainer");
 		var pageTr = document.createElement("tr");

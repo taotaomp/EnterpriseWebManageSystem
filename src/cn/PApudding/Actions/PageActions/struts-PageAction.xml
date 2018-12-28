@@ -5,6 +5,8 @@
 
 <struts>
     <package name="PageActions" namespace="/" extends="struts-default">
+    	<!-- *************************************************页面创建************************************************* -->
+    	
     	<!-- 创建页面请求的action映射 -->
         <action name="enterCreatePage" class="cn.PApudding.Actions.PageActions.EnterCreatePageAction">
             <result name="success">/jsps/LayoutManageJsps/PageManageJsps/CreatePage.jsp</result>
@@ -18,6 +20,8 @@
         	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
         
+        <!-- *************************************************页面删除************************************************* -->
+        
         <!-- 进入删除页面请求的action映射 -->
         <action name="enterDeletePage" class="cn.PApudding.Actions.PageActions.EnterDeletePageAction">
         	<result name="success">/jsps/LayoutManageJsps/PageManageJsps/DeletePage.jsp</result>
@@ -26,15 +30,16 @@
         <action name="deletePage" class="cn.PApudding.Actions.PageActions.DeletePageAction">
         	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
-         
-        <!-- 站点管理请求的action映射 -->
-        <action name="enterSiteManagePage" class="cn.PApudding.Actions.PageActions.EnterSiteManagePageAction">
-        	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteSetting.jsp</result>
-        </action>       
+               
+        <!-- *************************************************站点************************************************* -->
+        
+        <!-- 进入站点展示请求的action映射 -->
+        <action name="enterSiteShow" class="cn.PApudding.Actions.PageActions.EnterSiteShowAction">
+        	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteShow.jsp</result>
+        </action>
         <!-- 保存站点请求的action映射 -->
         <action name="saveSite" class="cn.PApudding.Actions.PageActions.SaveSiteAction">
         	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
-          
     </package>
 </struts>
