@@ -12,9 +12,6 @@ import java.io.IOException;
  *
  */
 public class SiteJspGenerator {
-	private static String beyongHTML = "<%@ page language=\"java\" contentType=\"text/html; charset=UTF-8\"\r\n"
-			+ "    pageEncoding=\"UTF-8\"%>\r\n" + "<!DOCTYPE html>";
-
 	/**
 	 * 生成站点JSP文件的方法
 	 * 
@@ -37,9 +34,9 @@ public class SiteJspGenerator {
 		// 带缓冲的输出流
 		BufferedWriter bw = new BufferedWriter(fileWriter);
 		// 写入文件
-		bw.write(beyongHTML);
-		bw.newLine();
-		bw.write(Content);
+		if(Content!=null) {
+			bw.write(Content);
+		}
 		bw.close();
 	}
 

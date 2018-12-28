@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>创建一个新模板</title>
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
-<link rel="stylesheet" type="text/css" href="css/index.css" />
-<link rel="stylesheet" type="text/css" href="css/搜索框.css" />
-<link rel="stylesheet" type="text/css" href="css/导航栏.css" />
-<link rel="stylesheet" type="text/css" href="css/轮播图.css" />
-<link rel="stylesheet" type="text/css" href="css/留言.css" />
+<link rel="stylesheet" type="text/css" href="jsps/LayoutManageJsps/TemplateManageJsps/css/jquery-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="jsps/LayoutManageJsps/TemplateManageJsps/css/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="jsps/LayoutManageJsps/TemplateManageJsps/css/index.css" />
+<link rel="stylesheet" type="text/css" href="jsps/LayoutManageJsps/TemplateManageJsps/css/搜索框.css" />
+<link rel="stylesheet" type="text/css" href="jsps/LayoutManageJsps/TemplateManageJsps/css/导航栏.css" />
+<link rel="stylesheet" type="text/css" href="jsps/LayoutManageJsps/TemplateManageJsps/css/轮播图.css" />
+<link rel="stylesheet" type="text/css" href="jsps/LayoutManageJsps/TemplateManageJsps/css/留言.css" />
 </head>
 <body>
 	<div id="btnassemble">
@@ -47,14 +47,14 @@
 		<!--轮播图-->
 		<div id="scrollPic" class="slider">
 			<ul>
-				<li><a href="#"><img src="img/1.jpg" alt=""></a></li>
-				<li><a href="#"><img src="img/2.jpg" alt=""></a></li>
-				<li><a href="#"><img src="img/3.jpg" alt=""></a></li>
-				<li><a href="#"><img src="img/4.jpg" alt=""></a></li>
-				<li><a href="#"><img src="img/5.jpg" alt=""></a></li>
-				<li><a href="#"><img src="img/6.jpg" alt=""></a></li>
-				<li><a href="#"><img src="img/7.jpg" alt=""></a></li>
-				<li><a href="#"><img src="img/8.jpg" alt=""></a></li>
+				<li><a href="#"><img src="jsps/LayoutManageJsps/TemplateManageJsps/img/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="jsps/LayoutManageJsps/TemplateManageJsps/img/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="jsps/LayoutManageJsps/TemplateManageJsps/img/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="jsps/LayoutManageJsps/TemplateManageJsps/img/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="jsps/LayoutManageJsps/TemplateManageJsps/img/5.jpg" alt=""></a></li>
+				<li><a href="#"><img src="jsps/LayoutManageJsps/TemplateManageJsps/img/6.jpg" alt=""></a></li>
+				<li><a href="#"><img src="jsps/LayoutManageJsps/TemplateManageJsps/img/7.jpg" alt=""></a></li>
+				<li><a href="#"><img src="jsps/LayoutManageJsps/TemplateManageJsps/img/8.jpg" alt=""></a></li>
 			</ul>
 			<!--箭头-->
 			<div class="arrow">
@@ -93,9 +93,9 @@
 			</ul>
 		</div>
 	</div>
-	<script src="js/jquery-2.1.0.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
+	<script src="jsps/LayoutManageJsps/TemplateManageJsps/js/jquery-2.1.0.js"></script>
+	<script src="jsps/LayoutManageJsps/TemplateManageJsps/js/jquery-ui.js"></script>
+	<script src="jsps/LayoutManageJsps/TemplateManageJsps/js/jquery-ui.min.js"></script>
 	<script>
 		$(function() {
 			//添加搜索框

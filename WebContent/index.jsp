@@ -7,6 +7,8 @@
 </head>
 <body>
 	<!-- 将请求转发到EnterMainSiteAction -->
-	<jsp:forward page="${pageContext.request.contextPath}/enterMainSite_index.action"/>
+	<%
+		response.sendRedirect(request.getContextPath()+"/enterMainSite_index.action");
+	%>
 </body>
 </html>

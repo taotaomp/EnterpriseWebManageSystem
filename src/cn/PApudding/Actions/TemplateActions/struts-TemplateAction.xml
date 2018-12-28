@@ -11,7 +11,7 @@
     <package name="TemplateActions" namespace="/" extends="struts-default">
     	<!-- 创建模板请求的action映射 -->
         <action name="enterCreateTemplate" class="cn.PApudding.Actions.TemplateActions.EnterCreateTemplateAction">
-            <result name="success">/jsps/LayoutManagement/createTemplate.jsp</result>
+            <result name="success">/jsps/LayoutManageJsps/TemplateManageJsps/CreateTemplate.jsp</result>
         </action>
         <!-- 保存模板请求的action映射 -->
         <action name="saveTemplate" class="cn.PApudding.Actions.TemplateActions.SaveTemplateAction">

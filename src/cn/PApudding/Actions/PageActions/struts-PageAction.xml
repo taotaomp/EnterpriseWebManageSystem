@@ -17,17 +17,17 @@
         
         <!-- 页面保存请求的action映射 -->
         <action name="savePage" class="cn.PApudding.Actions.PageActions.SavePageAction">
-        	<result name="success"></result>
+        	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
         
         <!-- 站点管理请求的action映射 -->
         <action name="enterSiteManagePage" class="cn.PApudding.Actions.PageActions.EnterSiteManagePageAction">
-        	<result name="success"></result>
+        	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteSetting.jsp</result>
         </action>
         
         <!-- 保存站点请求的action映射 -->
         <action name="saveSite" class="cn.PApudding.Actions.PageActions.SaveSiteAction">
-        	<result name="success">/jsps/saveSiteTest/saveSite.jsp</result>
+        	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
         
         <!-- 绑定数据源请求的action映射 -->

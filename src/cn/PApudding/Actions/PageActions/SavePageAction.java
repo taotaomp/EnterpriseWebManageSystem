@@ -27,7 +27,8 @@ import cn.PApudding.Dao.HibernateUtils;
  */
 public class SavePageAction extends ActionSupport {
 	private String pageName;
-	private ArrayList<String> webTemplateToModelBindEntityId = new ArrayList<String>();
+	//绑定实体ID#随机数
+	private ArrayList<String> webTemplateToModelBindEntityId_Random = new ArrayList<String>();
 
 	public String getPageName() {
 		return pageName;
@@ -37,12 +38,14 @@ public class SavePageAction extends ActionSupport {
 		this.pageName = pageName;
 	}
 
-	public ArrayList<String> getWebTemplateToModelBindEntityId() {
-		return webTemplateToModelBindEntityId;
+	
+
+	public ArrayList<String> getWebTemplateToModelBindEntityId_Random() {
+		return webTemplateToModelBindEntityId_Random;
 	}
 
-	public void setWebTemplateToModelBindEntityId(ArrayList<String> webTemplateToModelBindEntityId) {
-		this.webTemplateToModelBindEntityId = webTemplateToModelBindEntityId;
+	public void setWebTemplateToModelBindEntityId_Random(ArrayList<String> webTemplateToModelBindEntityId_Random) {
+		this.webTemplateToModelBindEntityId_Random = webTemplateToModelBindEntityId_Random;
 	}
 
 	@Override
@@ -69,7 +72,7 @@ public class SavePageAction extends ActionSupport {
 			// 判断键名，如果是“pageName”或“pageFileCode”则不取其值
 			if (!randomNum.equals("pageName")) {
 				if (!randomNum.equals("pageFileCode")) {
-					if(!randomNum.contains("modelName")) {
+					if(!randomNum.contains("webTemplateToModelBindEntityId_Random")) {
 						// 获取值，值的格式为：“数据库名”#“作用域名”
 						String[] dbnameAndfield = request.getParameter(randomNum).split("#");
 						// 将得到的值填充WebPageToModelBindEntity对象，并将对象添加到专属容器中
@@ -100,12 +103,17 @@ public class SavePageAction extends ActionSupport {
 				"<meta charset=\"UTF-8\">\r\n";
 		pageCodeContainer.append(jspHead);
 		pageCodeContainer.append("<title>"+pageName+"</title>");
-		pageCodeContainer.append("<style type=\"text/css\">");
+		pageCodeContainer.append(
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\"jsps/MainSiteJsp/css/jquery-ui.min.css\" />\r\n" + 
+				"<link rel=\"stylesheet\" type=\"text/css\" href=\"jsps/MainSiteJsp/css/jquery-ui.css\" />\r\n");
+		pageCodeContainer.append("<style type=\"text/css\">\r\n");
 		
 		//获取全部的  模板部件绑定模型  id
-		for(String t2mBindEntityID : webTemplateToModelBindEntityId) {
+		for(String t2mBindEntityID : webTemplateToModelBindEntityId_Random) {
+			//获取绑定实体ID
+			String bindEntityID = t2mBindEntityID.split("#")[0];
 			//通过id获取对应的  模板部件绑定模型
-			WebTemplateToModelBindEntity bindEntity = (WebTemplateToModelBindEntity) HibernateUtils.getSingleObjectBySql("FROM WebTemplateToModelBindEntity WHERE id = '"+t2mBindEntityID+"'");
+			WebTemplateToModelBindEntity bindEntity = (WebTemplateToModelBindEntity) HibernateUtils.getSingleObjectBySql("FROM WebTemplateToModelBindEntity WHERE id = '"+bindEntityID+"'");
 			//通过  模板部件绑定模型  获取模板
 			WebModel model = (WebModel) HibernateUtils.getSingleObjectBySql("FROM WebModel WHERE modelName = '"+bindEntity.getModelName()+"'");
 			//通过模板获取其CSS代码
@@ -118,18 +126,91 @@ public class SavePageAction extends ActionSupport {
 		
 		pageCodeContainer.append("</style></head><body>");
 		
-		for(String t2mBindEntityID : webTemplateToModelBindEntityId) {
+		for(String t2mBindEntityID : webTemplateToModelBindEntityId_Random) {
+			//获取绑定实体ID
+			String bindEntityID = t2mBindEntityID.split("#")[0];
+			String randomNum = t2mBindEntityID.split("#")[1];
 			//通过id获取对应的  模板部件绑定模型
-			WebTemplateToModelBindEntity bindEntity = (WebTemplateToModelBindEntity) HibernateUtils.getSingleObjectBySql("FROM WebTemplateToModelBindEntity WHERE id = '"+t2mBindEntityID+"'");
+			WebTemplateToModelBindEntity bindEntity = (WebTemplateToModelBindEntity) HibernateUtils.getSingleObjectBySql("FROM WebTemplateToModelBindEntity WHERE id = '"+bindEntityID+"'");
+			//若存在nav部件，则将其代码织入
 			if(bindEntity.getModelName().equals("nav")) {
-				Random random = new Random();
-				String varName = "nav_"+random.nextInt(1000);
-				String SourceName = Integer.toString((random.nextInt(10000)));
-				ModelHtmlWaveIn.waveModelForNav(bindEntity.getModelStyleValue(), varName, SourceName);
+				String varName = "nav_"+randomNum;
+				String SourceName = "NavBarDefault";
+				String modelHtmlCode = ModelHtmlWaveIn.waveModelForNav(bindEntity.getModelStyleValue(), varName, SourceName);
+				pageCodeContainer.append(modelHtmlCode);
+			}
+			//若存在list1部件，则将其代码织入
+			if(bindEntity.getModelName().equals("list1")) {
+				String varName = "list1_"+randomNum;
+				String SourceName = randomNum;
+				String modelHtmlCode = ModelHtmlWaveIn.waveModelForList1(bindEntity.getModelStyleValue(), varName, SourceName);
+				pageCodeContainer.append(modelHtmlCode);
+			}
+			//若存在list2部件，则将其代码织入
+			if(bindEntity.getModelName().equals("list2")) {
+				String varName = "list2_"+randomNum;
+				String SourceName = randomNum;
+				String modelHtmlCode = ModelHtmlWaveIn.waveModelForList2(bindEntity.getModelStyleValue(), varName, SourceName);
+				pageCodeContainer.append(modelHtmlCode);
+			}
+			//若存在image部件，则将其代码织入
+			if(bindEntity.getModelName().equals("image")) {
+				String varName = "image_"+randomNum;
+				String SourceName = randomNum;
+				String modelHtmlCode = ModelHtmlWaveIn.waveModelForImage(bindEntity.getModelStyleValue(), varName, SourceName);
+				pageCodeContainer.append(modelHtmlCode);
+			}
+			//若存在slider部件，则将其代码织入
+			if(bindEntity.getModelName().equals("slider")) {
+				String varName = "slider_"+randomNum;
+				String SourceName = randomNum;
+				String modelHtmlCode = ModelHtmlWaveIn.waveModelForSlider(bindEntity.getModelStyleValue(), varName, SourceName);
+				pageCodeContainer.append(modelHtmlCode);
+			}
+			//若存在search部件，则将其代码织入
+			if(bindEntity.getModelName().equals("search")) {
+//				String varName = "search_"+randomNum;
+//				String SourceName = randomNum;
+				WebModel model = (WebModel) HibernateUtils.getSingleObjectBySql("FROM WebModel WHERE modelName = '"+bindEntity.getModelName()+"'");
+				String modelHtmlCode = model.getModelHtmlCode();
+				pageCodeContainer.append(modelHtmlCode);
+			}
+			//若存在message部件，则将其代码织入
+			if(bindEntity.getModelName().equals("message")) {
+//				String varName = "message_"+randomNum;
+//				String SourceName = randomNum;
+				WebModel model = (WebModel) HibernateUtils.getSingleObjectBySql("FROM WebModel WHERE modelName = '"+bindEntity.getModelName()+"'");
+				String modelHtmlCode = model.getModelHtmlCode();
+				pageCodeContainer.append(modelHtmlCode);
 			}
 		}
-		
+		pageCodeContainer.append(
+				"	<script src=\"jsps/MainSiteJsp/js/jquery-2.1.0.js\"></script>\r\n" + 
+				"	<script src=\"jsps/MainSiteJsp/js/jquery-ui.js\"></script>\r\n" + 
+				"	<script src=\"jsps/MainSiteJsp/js/jquery-ui.min.js\"></script>\r\n" + 
+				"	<script>\r\n");
+		//获取全部的  模板部件绑定模型  id
+		for(String t2mBindEntityID : webTemplateToModelBindEntityId_Random) {
+			//获取绑定实体ID
+			String bindEntityID = t2mBindEntityID.split("#")[0];
+			//通过id获取对应的  模板部件绑定模型
+			WebTemplateToModelBindEntity bindEntity = (WebTemplateToModelBindEntity) HibernateUtils.getSingleObjectBySql("FROM WebTemplateToModelBindEntity WHERE id = '"+bindEntityID+"'");
+			//通过  模板部件绑定模型  获取模板
+			WebModel model = (WebModel) HibernateUtils.getSingleObjectBySql("FROM WebModel WHERE modelName = '"+bindEntity.getModelName()+"'");
+			//通过模板获取其Js代码
+			String modelJsCode = model.getModelJs();
+			if(modelJsCode != null) {
+				//将代码装入JSP代码容器中
+				pageCodeContainer.append(modelJsCode);
+			}
+		}
+		pageCodeContainer.append(
+				"	</script>\r\n" + 
+				"</body>\r\n" + 
+				"</html>");
 
+		//保存pageCode到对象中
+		webPage.setPageFileCode(pageCodeContainer.toString());
 		// 存储对象到数据库中
 		Set<Object> ocToStore = new HashSet<Object>();
 		for (Object objects : bindEntities) {

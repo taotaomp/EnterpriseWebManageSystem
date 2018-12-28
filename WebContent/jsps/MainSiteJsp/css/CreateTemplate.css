@@ -1,0 +1,18 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#ModelSelect,#LayoutSetting{
+	float: left;
+	margin: 10px 10px;
+	height: 800px;
+	width: 15%;
+	/*border: 1px solid black;*/
+	box-shadow: 3px 3px 4px lightgray,3px -3px 4px lightgray,-3px 3px 4px lightgray,-3px -3px 4px lightgray;
+}
+
+#LayoutSetting{
+	width: 82%;
+	position: relative;
+}

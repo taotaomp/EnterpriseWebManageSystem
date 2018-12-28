@@ -2,6 +2,8 @@ package cn.PApudding.Actions.PageActions;
 
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import cn.PApudding.Dao.HibernateUtils;
@@ -17,7 +19,7 @@ public class EnterSiteManagePageAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		webPages = HibernateUtils.getAllObjects("WebPage");
-		
+		ServletActionContext.getRequest().setAttribute("webPageList",webPages);
 		return SUCCESS;
 	}
 }

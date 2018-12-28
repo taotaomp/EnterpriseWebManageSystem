@@ -52,11 +52,14 @@
 			<tr>
 				<td>
 					<%=bindEntity.getModelName() %>
-					<input hidden="true" name="webTemplateToModelBindEntityId[<%=i++ %>]" value="<%=bindEntity.getId() %>">
+					<%
+						int randomNum = random.nextInt(1000);
+					%>
+					<input hidden="true" name="webTemplateToModelBindEntityId_Random[<%=i++ %>]" value="<%=bindEntity.getId() %>#<%=randomNum%>">
 				</td>
 				<td>
 				<!-- 生成随机数作为模板的唯一标识 -->
-					<select name="<%=random.nextInt(100)%>">
+					<select name="<%=randomNum%>">
 						<%
 							for(String string :webEssayFields){
 								
@@ -69,7 +72,7 @@
 							for(String string :webLinkFields){
 								
 						%>
-							<option value="WebLinkFields#<%=string%>"><%=string%></option>
+							<option value="WebLink#<%=string%>"><%=string%></option>
 						<%
 							}
 						%>
@@ -77,7 +80,7 @@
 							for(String string :webMediaSourceFields){
 								
 						%>
-							<option value="WebMediaSourceFields#<%=string%>"><%=string%></option>
+							<option value="WebMediaSource#<%=string%>"><%=string%></option>
 						<%
 							}
 						%>

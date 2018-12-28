@@ -91,20 +91,17 @@ table tr td {
 				</td>
 			</tr>
 			<tr>
-				<td colspan="3">文章内容</td>
-				<td></td>
-				<td></td>
+				<td>文章内容</td>
 			</tr>
 			<tr>
 				<td colspan="3"><textarea id="WebEssayContent"
 						name="webEssay.essayContent" cols="60" rows="90"></textarea>
-				<td></td>
-				<td></td>
+				</td>
+				<td style="border:0px"></td>
+				<td style="border:0px"></td>
 			</tr>
 			<tr>
-				<td colspan="3"><input type="submit" value="提交"></td>
-				<td></td>
-				<td></td>
+				<td><input type="submit" value="提交"></td>
 			</tr>
 		</table>
 	</form>
@@ -146,7 +143,7 @@ table tr td {
 				</td>
 			</tr>
 			<tr>
-				<td colspan="3"><input type="submit" value="提交"></td>
+				<td colspan="2"><input type="submit" value="提交"></td>
 				<td></td>
 				<td></td>
 			</tr>
@@ -194,7 +191,7 @@ table tr td {
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="提交更改"></td>
+				<td colspan="1"><input type="submit" value="提交更改"></td>
 				<td></td>
 			</tr>
 		</table>
