@@ -3,7 +3,6 @@ package cn.PApudding.Actions.PageActions;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +20,26 @@ import cn.PApudding.Dao.HibernateUtils;
 
 /**
  * 请求“保存创建的页面”时的Action
+ * -------------------------------------------------
+ * 此Action维护：jsps
+ * 			  	  ->LayoutManageJsps
+ * 			        ->PageManageJsps
+ * 				      ->CreatePageBindDataSource.jsp
+ * 中表单的savePage.action
+ * -------------------------------------------------
+ * 由Struts2框架自动接收的表单的内容：					
+ * 		name:pageName	value:用户输入的页面名称
+ * 		name:webTemplateToModelBindEntityId_Random[index]  value:模板和控件绑定实体的ID#随机数
  * 
+ * 使用ServletActionContext.getRequest()从请求中手动提取的表单内容：
+ * 		name:随机数	value:数据库名#作用域名
+ * 		name:随机数	value:数据库名#作用域名
+ * 		......
+ * 		name:随机数	value:数据库名#作用域名
+ *---------------------------------------------------
+ * 此Action功能：
+ * 	创建一个WebPage对象，填充对象内容，将其固化到数据库中
+ *---------------------------------------------------
  * @author PApudding
  *
  */
@@ -38,8 +56,6 @@ public class SavePageAction extends ActionSupport {
 		this.pageName = pageName;
 	}
 
-	
-
 	public ArrayList<String> getWebTemplateToModelBindEntityId_Random() {
 		return webTemplateToModelBindEntityId_Random;
 	}
@@ -49,9 +65,21 @@ public class SavePageAction extends ActionSupport {
 	}
 
 	@Override
-	public String execute() throws Exception {
-		// 创建webPage对象，并填充字段
+	public String execute() throws Exception { 
+		/* 创建webPage对象，该对象为整个Web页面的容器
+		 * -----------------------------------------
+		 * 需要填充的字段：String pageName
+		 * 				  String pageFileCode
+		 * 				  Set<WebPageToModelBindEntity> webPageToModelBindEntities
+		 * 由Hibernate框架自动填充的字段：
+		 * 				  int id
+		 * */
 		WebPage webPage = new WebPage();
+		
+		/*以下为生成、获取并填充webPage对象的pageName和webPageToModelBindEntities字段的代码
+		 *-----------------------------------------------------------------------
+		 * */
+		//填充webPage对象的pageName字段
 		webPage.setPageName(pageName);
 		//webPage.setPageFileCode(pageFileCode);
 
@@ -86,10 +114,15 @@ public class SavePageAction extends ActionSupport {
 				}
 			}
 		}
-		// 填充webPage的Set字段
+		// 填充webPage的webPageToModelBindEntities字段
 		webPage.setWebPageToModelBindEntities(bindEntities);
-		//PageCode生成
+		
+		/* 以下为生成webPage对象的pageFileCode字段的代码
+		 * ---------------------------------------------------------------------------------------
+		 * */
+		//PageCode容器
 		StringBuilder pageCodeContainer = new StringBuilder();
+		//为页面添加公共的头部
 		String jspHead = 
 				"<%@page import=\"cn.PApudding.Beans.SourceBeans.WebMediaSource\"%>\r\n" + 
 				"<%@page import=\"cn.PApudding.Beans.SourceBeans.WebLink\"%>\r\n" + 
@@ -102,19 +135,29 @@ public class SavePageAction extends ActionSupport {
 				"<head>\r\n" + 
 				"<meta charset=\"UTF-8\">\r\n";
 		pageCodeContainer.append(jspHead);
+		//为页面添加标题：标题为pageName(页面名)
 		pageCodeContainer.append("<title>"+pageName+"</title>");
+		//为页面添加公共的样式表
 		pageCodeContainer.append(
 				"<link rel=\"stylesheet\" type=\"text/css\" href=\"jsps/MainSiteJsp/css/jquery-ui.min.css\" />\r\n" + 
 				"<link rel=\"stylesheet\" type=\"text/css\" href=\"jsps/MainSiteJsp/css/jquery-ui.css\" />\r\n");
+		
+		//根据页面上存在的部件 为页面动态添加CSS样式
 		pageCodeContainer.append("<style type=\"text/css\">\r\n");
 		
-		//获取全部的  模板部件绑定模型  id
+		//获取全部的  模板部件绑定模型的  id	（webTemplateToModelBindEntityId_Random由Struts2框架自动获取）
 		for(String t2mBindEntityID : webTemplateToModelBindEntityId_Random) {
-			//获取绑定实体ID
+			//获取模板部件绑定实体ID
 			String bindEntityID = t2mBindEntityID.split("#")[0];
-			//通过id获取对应的  模板部件绑定模型
+			//通过id从数据库中获取对应的  模板部件绑定实体
+			/*
+			 * 模板部件绑定实体 WebTemplateToModelBindEntity
+			 * 内部字段：id
+			 * 			modelName 部件名称
+			 * 			modelStyleValue 部件Css布局代码
+			 * */
 			WebTemplateToModelBindEntity bindEntity = (WebTemplateToModelBindEntity) HibernateUtils.getSingleObjectBySql("FROM WebTemplateToModelBindEntity WHERE id = '"+bindEntityID+"'");
-			//通过  模板部件绑定模型  获取模板
+			//通过  模板部件绑定实体  获取部件
 			WebModel model = (WebModel) HibernateUtils.getSingleObjectBySql("FROM WebModel WHERE modelName = '"+bindEntity.getModelName()+"'");
 			//通过模板获取其CSS代码
 			String modelCssCode = model.getModeCssCode();
@@ -123,19 +166,21 @@ public class SavePageAction extends ActionSupport {
 				pageCodeContainer.append(modelCssCode);
 			}
 		}
-		
 		pageCodeContainer.append("</style></head><body>");
 		
+		//根据页面上存在的部件 为页面动态添加部件Html代码
 		for(String t2mBindEntityID : webTemplateToModelBindEntityId_Random) {
-			//获取绑定实体ID
+			//获取模板部件绑定实体ID
 			String bindEntityID = t2mBindEntityID.split("#")[0];
 			String randomNum = t2mBindEntityID.split("#")[1];
-			//通过id获取对应的  模板部件绑定模型
+			//通过id获取对应的  模板部件绑定实体
 			WebTemplateToModelBindEntity bindEntity = (WebTemplateToModelBindEntity) HibernateUtils.getSingleObjectBySql("FROM WebTemplateToModelBindEntity WHERE id = '"+bindEntityID+"'");
+			
+			//判断部件类型，通过部件类型来确定要织入的部件Html代码
 			//若存在nav部件，则将其代码织入
 			if(bindEntity.getModelName().equals("nav")) {
 				String varName = "nav_"+randomNum;
-				String SourceName = "NavBarDefault";
+				String SourceName = "NavBarDefault";	//nav代表导航栏，导航栏固定绑定NavBarDefault资源
 				String modelHtmlCode = ModelHtmlWaveIn.waveModelForNav(bindEntity.getModelStyleValue(), varName, SourceName);
 				pageCodeContainer.append(modelHtmlCode);
 			}
@@ -184,6 +229,8 @@ public class SavePageAction extends ActionSupport {
 				pageCodeContainer.append(modelHtmlCode);
 			}
 		}
+		
+		//根据页面上存在的部件 为页面动态添加部件Js代码
 		pageCodeContainer.append(
 				"	<script src=\"jsps/MainSiteJsp/js/jquery-2.1.0.js\"></script>\r\n" + 
 				"	<script src=\"jsps/MainSiteJsp/js/jquery-ui.js\"></script>\r\n" + 
@@ -193,9 +240,9 @@ public class SavePageAction extends ActionSupport {
 		for(String t2mBindEntityID : webTemplateToModelBindEntityId_Random) {
 			//获取绑定实体ID
 			String bindEntityID = t2mBindEntityID.split("#")[0];
-			//通过id获取对应的  模板部件绑定模型
+			//通过id获取对应的  模板部件绑定实体
 			WebTemplateToModelBindEntity bindEntity = (WebTemplateToModelBindEntity) HibernateUtils.getSingleObjectBySql("FROM WebTemplateToModelBindEntity WHERE id = '"+bindEntityID+"'");
-			//通过  模板部件绑定模型  获取模板
+			//通过  模板部件绑定实体  获取模板
 			WebModel model = (WebModel) HibernateUtils.getSingleObjectBySql("FROM WebModel WHERE modelName = '"+bindEntity.getModelName()+"'");
 			//通过模板获取其Js代码
 			String modelJsCode = model.getModelJs();
@@ -208,16 +255,28 @@ public class SavePageAction extends ActionSupport {
 				"	</script>\r\n" + 
 				"</body>\r\n" + 
 				"</html>");
-
-		//保存pageCode到对象中
+		//填充webPage的pageFileCode字段
 		webPage.setPageFileCode(pageCodeContainer.toString());
-		// 存储对象到数据库中
+		
+		/* 
+		 * 以下为将webPage对象固化到数据库的代码
+		 * ---------------------------------------------------------------------------------------
+		 * */
+		
+		/*WebPage的保存需要在一个事务内保存多个对象
+		 * 包含WebPage对象
+		 * 		其依赖的Set<WebPageToModelBindEntity>对象中的WebPageToModelBindEntity对象
+		 * 实现：
+		 * 	将所需的对象包装成一个Set<Object>集合
+		 * 	传入HibernateUtils.saveObjects()方法完成多个对象的保存
+		 * */
 		Set<Object> ocToStore = new HashSet<Object>();
 		for (Object objects : bindEntities) {
 			ocToStore.add(objects);
 		}
 		ocToStore.add(webPage);
 		HibernateUtils.saveObjects(ocToStore);
+		
 		return SUCCESS;
 	}
 	
