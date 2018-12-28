@@ -37,9 +37,15 @@
         <action name="enterSiteShow" class="cn.PApudding.Actions.PageActions.EnterSiteShowAction">
         	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteShow.jsp</result>
         </action>
+        <!-- 进入站点删除请求的action映射 -->
+        <action name="enterSiteDelete" class="cn.PApudding.Actions.PageActions.EnterSiteDeleteAction">
+        	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteDelete.jsp</result>
+        </action>
         <!-- 保存站点请求的action映射 -->
         <action name="saveSite" class="cn.PApudding.Actions.PageActions.SaveSiteAction">
         	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
         </action>
+        
+        
     </package>
 </struts>
