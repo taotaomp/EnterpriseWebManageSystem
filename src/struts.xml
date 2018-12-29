@@ -4,11 +4,12 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<!-- 开启Dev模式，使添加映射后不用重启 -->
-	<constant name="struts.devMode" value="true"></constant>
+	<!-- <constant name="struts.devMode" value="true"></constant> -->
+	
 	<package name="EnterpriseManageSystem" namespace="/" extends="struts-default">
-		<action name="test" class="cn.PApudding.Actions.TestAction">
+		<!-- <action name="test" class="cn.PApudding.Actions.TestAction">
 			<result name="success">/jsps/createDataSpurce.jsp</result>
-		</action>
+		</action> -->
 		<!-- 布局管理主页面映射 -->
 		<action name="enterLayoutManage" class="cn.PApudding.Actions.EnterLayoutManageAction">
 			<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>

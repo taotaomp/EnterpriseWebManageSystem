@@ -151,7 +151,7 @@ public class HibernateUtils {
 		Query query = session.createQuery(sql);
 		List<Object> list = query.list();
 		Object object = null;
-		if (list != null) {
+		if (list.size() != 0) {
 			object = list.get(0);
 		}
 		// 提交事务

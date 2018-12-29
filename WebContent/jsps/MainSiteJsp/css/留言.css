@@ -4,7 +4,7 @@
 	top: 100px;
 	width: 200px;
 	height: 200px;
-	background-image: url(jsps/LayoutManageJsps/TemplateManageJsps/img/message.jpg);
+	background-image: url(../img/message.jpg);
 	background-size: 100% 100%;
 	border: 1px solid gainsboro;
 	display: none;

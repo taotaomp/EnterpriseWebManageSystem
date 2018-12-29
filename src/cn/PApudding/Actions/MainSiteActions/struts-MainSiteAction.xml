@@ -10,9 +10,8 @@
         <!-- 通配访问Jsp -->
         <action name="enterMainSite_*" class="cn.PApudding.Actions.MainSiteActions.EnterMainSiteAction">
         	<result name="success">/jsps/MainSiteJsp/{1}.jsp</result>
+        	<result name="error">/jsps/MainSiteJsp/NoIndexError.jsp</result>
         </action>
-        <action name="enterMainSite_index" class="cn.PApudding.Actions.MainSiteActions.EnterMainSiteAction">
-        	<result name="success">/jsps/MainSiteJsp/index.jsp</result>
-        </action>
+        
     </package>
 </struts>

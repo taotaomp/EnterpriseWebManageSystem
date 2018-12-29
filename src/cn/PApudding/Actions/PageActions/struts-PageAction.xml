@@ -41,9 +41,17 @@
         <action name="enterSiteDelete" class="cn.PApudding.Actions.PageActions.EnterSiteDeleteAction">
         	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteDelete.jsp</result>
         </action>
+        <!-- 站点删除请求的action映射 -->
+        <action name="siteDeleteAction" class="cn.PApudding.Actions.PageActions.DeleteSiteAction">
+        	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteManageEntrance.jsp</result>
+        </action>
+        <!-- 进入站点新建请求的action映射 -->
+        <action name="enterSiteCreate" class="cn.PApudding.Actions.PageActions.EnterSiteCreateAction">
+        	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteCreate.jsp</result>
+        </action>
         <!-- 保存站点请求的action映射 -->
         <action name="saveSite" class="cn.PApudding.Actions.PageActions.SaveSiteAction">
-        	<result name="success">/jsps/LayoutManageJsps/LayoutManageEntrance.jsp</result>
+        	<result name="success">/jsps/LayoutManageJsps/SiteManageJsps/SiteManageEntrance.jsp</result>
         </action>
         
         

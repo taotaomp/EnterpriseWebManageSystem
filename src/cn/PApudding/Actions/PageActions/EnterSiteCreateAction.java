@@ -13,7 +13,7 @@ import cn.PApudding.Dao.HibernateUtils;
  * @author PApudding
  *
  */
-public class EnterSiteManagePageAction extends ActionSupport{
+public class EnterSiteCreateAction extends ActionSupport{
 	private List<Object> webPages;
 	
 	@Override

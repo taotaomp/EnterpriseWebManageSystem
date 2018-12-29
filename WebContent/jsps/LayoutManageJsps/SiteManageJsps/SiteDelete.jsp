@@ -17,8 +17,10 @@
 		if (webLinks != null) {
 			for(WebLink link :webLinks){
 	%>
-				<li><%=link.getLinkName() %></li>
-				<li><a href="${pageContext.request.contextPath}/siteDeleteAction?id=<%=link.getId()%>">删除</a></li>
+				<li>
+					<%=link.getLinkName() %>
+					<a href="${pageContext.request.contextPath}/siteDeleteAction?id=<%=link.getId()%>">删除</a>
+				</li>
 	<%
 			}
 		}

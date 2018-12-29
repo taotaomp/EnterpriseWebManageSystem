@@ -37,6 +37,9 @@ public class EnterMainSiteAction extends ActionSupport {
 		 * */
 		if (pageId == null) {
 			WebLink link = (WebLink) HibernateUtils.getSingleObjectBySql("FROM WebLink WHERE linkName = 'index'");
+			if(link==null) {
+				return ERROR;
+			}
 			String linkUrl = link.getLinkUrl();
 			pageId = linkUrl.split("=")[1];
 		}
